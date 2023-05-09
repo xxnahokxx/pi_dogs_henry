@@ -1,0 +1,42 @@
+.fondo {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(198, 117, 71);
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+}
+
+.button {
+  font-size: 1.5rem;
+  border-radius: 15px;
+  font-weight: bold;
+  padding: 10px;
+  z-index: 100;
+  margin: 0 25%;
+  background-color: rgb(255, 255, 255);
+  color: rgb(198, 117, 71);
+  border: 2px solid rgb(198, 117, 71);
+}
+
+.button:hover {
+  background-color: rgb(198, 117, 71);
+  color: rgb(255, 255, 255);
+  border: 2px solid rgb(255, 255, 255);
+  transition: all 0.5s ease;
+}
+
+.doggy {
+  width: 60%;
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  z-index: 0;
+  border-radius: 50px;
+}
+
+.title {
+  margin: 20% 21% 5%;
+  z-index: 100;
+  color: white;
+}
