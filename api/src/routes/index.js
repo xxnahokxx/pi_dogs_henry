@@ -5,10 +5,11 @@ const { dogPost, getDogs, getRazaId, getTemperament, queryDogs } = require("../c
 const router = Router();
 
 router.get("/dogs", getDogs)
+// router.get("/dogs", queryDogs)// solicitud por query por eso es igual a la primera
 router.get("/dogs/:idRaza", getRazaId)
-router.get("/dogs", queryDogs)// solicitud por query por eso es igual a la primera
 router.post("/dogs", dogPost)
 router.get("/temperaments", getTemperament)
+// router.post("/temperaments", getTemperament)  // probar despues
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

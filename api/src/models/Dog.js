@@ -6,27 +6,29 @@ module.exports = (sequelize) => {
   sequelize.define('dog', {
     ID: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       primaryKey: true,
+      autoIncrement: true,
+      initialValue: 300
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    imagen: {
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    heigth: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    altura: {
-      type: DataTypes.FLOAT,
+    weight: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
-    peso: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    años_de_vida: {
-      type: DataTypes.INTEGER,
+    life_span: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },
