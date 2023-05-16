@@ -1,0 +1,18 @@
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #826858;
+}
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.templateDogs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+}
