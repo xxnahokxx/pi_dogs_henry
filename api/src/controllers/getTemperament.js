@@ -1,4 +1,5 @@
 const axios = require('axios');
+const postTemperamentsHandlers = require("../handlers/postTemperamentsHandler");
 require("dotenv").config();
 const { END_POINT, API_KEY } = process.env;
 
@@ -11,19 +12,19 @@ const getTemperament = async (req, res) => {
             }
         })
         const temp = [];
-        const tratamient = info.map(el => {
-            if (el.temperament !== undefined) {
-                const corte = el.temperament.toString();
-                let prueba = corte.split(", ");
-                return prueba.map(el => {
+
+        info.filter(el => el.temperament !== undefined)
+            .map(el => {
+                const tempToString = el.temperament.toString();
+                let corte = tempToString.split(", ");
+                return corte.map(el => {
                     if (!temp.includes(el)) {
                         return temp.push(el);
                     }
                 })
-            }
         })
 
-        // console.log("estas en tratamient", temp);
+        await postTemperamentsHandlers(temp);
 
         res.status(200).json(temp);
 

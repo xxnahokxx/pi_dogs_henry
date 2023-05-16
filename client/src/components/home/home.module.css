@@ -1,9 +1,11 @@
 .content {
-  background: rgb(198, 117, 71);
+  padding-top: 5%;
+  background: #24B5E0;
   display: flex;
   align-items: center;
   flex-direction: column;
   position: relative;
+  height: 100vh;
 }
 
 .button {
@@ -12,7 +14,7 @@
   font-weight: bold;
   padding: 10px;
   z-index: 100;
-  /* margin: 0 25%; */
+  margin: 0 50px;
   background-color: rgb(255, 255, 255);
   color: rgb(198, 117, 71);
   border: 2px solid rgb(198, 117, 71);
@@ -42,7 +44,8 @@
 }
 
 .title {
-  margin: 20% 0 5% auto;
+  margin: 20% 50px 5% auto;
   z-index: 100;
   color: white;
 }
+

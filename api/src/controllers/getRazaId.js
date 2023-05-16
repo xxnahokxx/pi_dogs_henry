@@ -1,12 +1,23 @@
 const axios = require('axios');
 require("dotenv").config();
 const { END_POINT, API_KEY } = process.env;
+const { getIdDbHandler } = require("../handlers/index")
 
 const getRazaId = async (req, res) => {
     const { idRaza } = req.params;
     try {
         const { data } = await axios.get(`${END_POINT}`)
         const info = data.find(el => el.id === Number(idRaza));
+        console.log("esto es info api", info);
+        const info2 = await getIdDbHandler(idRaza);
+        console.log("esto es info DB", info2);
+
+        if (info2.length === 0 && info === undefined) return res.status(404).send({ message: "Perro no encontrado" })
+
+        if (info === undefined) {
+            return res.status(200).json(info2);
+        }
+
         const { id,
             reference_image_id,
             name,
@@ -15,7 +26,7 @@ const getRazaId = async (req, res) => {
             height: { metric: height },
             life_span,
         } = info;
-        console.log(height);
+
         res.status(200).json({
             id,
             reference_image_id,
@@ -25,8 +36,10 @@ const getRazaId = async (req, res) => {
             height,
             life_span,
         });
-    } catch (error) {
 
+
+    } catch (error) {
+        res.status(500).json({ error: error.message });
     }
 };
 

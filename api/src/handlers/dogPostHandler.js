@@ -8,7 +8,7 @@ const dogPostHandlers = async (name, heigth, weight, life_span, temperament) => 
         life_span,
     });
 
-
+    newDog.addTemperaments(temperament);
 
     return newDog;
 }

@@ -1,0 +1,41 @@
+.card {
+    width: 280px;
+    box-sizing: border-box;
+    background: #1FC7B7;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    margin: 10px;
+    animation: selection 1s linear normal;
+
+}
+
+@keyframes selection {
+   from{
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+.image {
+    width: 95%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.temperament {
+    padding-bottom: 1rem;
+    margin: 0;
+}
+
+.subTitle {
+    margin: 1rem 0 0 0 ;
+}
+
+.weight {
+    margin: 0;
+}
+
+

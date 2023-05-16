@@ -4,12 +4,10 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('dog', {
-    ID: {
+    id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      primaryKey: true,
       autoIncrement: true,
-      initialValue: 300
+      primaryKey: true,
     },
     name: {
       type: DataTypes.STRING,
@@ -31,10 +29,13 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+
   },
     {
       timestamps: false,
     });
 
 };
+
+
 
