@@ -10,6 +10,7 @@ function Card(props) {
             <p className={style.weight}>{props.weight} lb</p>
             <h3 className={style.subTitle}>Temperaments:</h3>
             <p className={style.temperament}>{props.temperament}</p>
+            <h5 className={style.id}>#{props.id}</h5>
         </div>
     )
 }

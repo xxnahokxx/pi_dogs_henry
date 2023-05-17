@@ -1,0 +1,1 @@
+export const DATO_EJEMPLO= "DATO_EJEMPLO";
