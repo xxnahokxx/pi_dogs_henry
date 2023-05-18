@@ -8,9 +8,7 @@ const getRazaId = async (req, res) => {
     try {
         const { data } = await axios.get(`${END_POINT}`)
         const info = data.find(el => el.id === Number(idRaza));
-        console.log("esto es info api", info);
         const info2 = await getIdDbHandler(idRaza);
-        console.log("esto es info DB", info2);
 
         if (info2.length === 0 && info === undefined) return res.status(404).send({ message: "Perro no encontrado" })
 

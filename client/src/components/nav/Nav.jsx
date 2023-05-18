@@ -1,8 +1,24 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
+import Search from "../search/Search";
 // import logo from "../../utils/images/icon_doggy.svg"
 
-export default function Nav(props) {
-    const pos = props.checkHome;
+export default function Nav() {
+
+    const location = useLocation();
+
+    const { pathname } = location;
+
+    const checkHome = () => {
+        if (pathname === "/dogs" || pathname === "/dogs/:id") {
+            return true;
+        }
+        return false;
+    };
+
+    const pos = checkHome();
+    const navigate = useNavigate();
+    const landingPage = () => navigate("/home"); // volver a home
     if (pos) {
         return (
 
@@ -50,12 +66,12 @@ export default function Nav(props) {
                     </div>
                     <div className={style.navOptions}>
                         <ul className={style.list}>
-                            <li className={style.itemList}> <a href="#">opcion 1</a> </li>
+                            <li className={style.itemList}> <a onClick={landingPage}>Home</a> </li>
                             <li className={style.itemList}> <a href="#">opcion 2</a> </li>
                             <li className={style.itemList}> <a href="#">opcion 3</a> </li>
                         </ul>
 
-                        <div>zona de la parte de busqueda.</div>
+                        <Search/>
                     </div>
                 </div>
             </div>

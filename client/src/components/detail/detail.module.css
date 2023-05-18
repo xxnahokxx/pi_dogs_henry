@@ -1,0 +1,45 @@
+
+
+.content {
+    max-width: 1000px;
+    background: #1FC7B7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 25px;
+}
+
+.image {
+    width: 95%;
+    max-height: 700px;
+    border-radius: 40px;
+    margin: auto;
+    object-fit: cover;
+    object-position: top;
+}
+
+.text {
+    font-weight: 500;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.subtitle {
+    margin: 5px auto;
+}
+
+.id {
+    position: absolute;
+    bottom: 3%;
+    right: 6%;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.specifications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}

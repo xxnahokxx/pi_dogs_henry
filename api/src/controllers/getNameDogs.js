@@ -10,7 +10,7 @@ const getNameDogs = async (req, res) => {
     const { search } = req.query;
     console.log(search);
     try {
-        if (!search) res.status(401).json({ message: "Faltan datos" });
+        if (!search) return res.status(401).json({ message: "Faltan datos" });
 
         const data1 = await getApiHandller(search);
         console.log(data1);

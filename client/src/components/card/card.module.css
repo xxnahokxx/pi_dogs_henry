@@ -24,6 +24,7 @@
     width: 95%;
     height: 200px;
     object-fit: cover;
+    object-position: top;
 }
 
 .temperament {
