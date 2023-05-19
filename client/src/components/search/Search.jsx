@@ -1,12 +1,11 @@
 import { connect } from "react-redux";
-import { getNameDogs, reset } from "../../redux/actions";
+import { allDogs, getNameDogs, reset } from "../../redux/actions";
 import { useState } from "react";
 import style from "./search.module.css"
 
-function Search({ busqueda, reset }) {
+function Search({ busqueda, reset, allDogs }) {
 
     const [raza, setRaza] = useState("");
-    console.log(raza);
     const handleInputChange = (event) => {
         const { value } = event.target;
         setRaza(value);
@@ -18,11 +17,12 @@ function Search({ busqueda, reset }) {
     };
 
     const handleAll = (raza) => {
-        reset(raza);
         setRaza("");
+        reset();
+        allDogs();
     }
 
-    
+
 
 
     return (
@@ -44,6 +44,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         busqueda: (raza) => dispatch(getNameDogs(raza)),
         reset: () => dispatch(reset()),
+        allDogs: () => dispatch(allDogs()),
     }
 }
 
