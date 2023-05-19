@@ -1,4 +1,4 @@
-import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO } from "./types";
+import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO, ALFABETO, ORIGEN } from "./types";
 import axios from "axios";
 const endpoint = "http://localhost:3001";
 
@@ -36,7 +36,6 @@ export const getNameDogs = (name) => {
 }
 
 export const getRazaId = (id) => {
-    console.log(id);
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`${endpoint}/dogs/${id}`);
@@ -62,6 +61,21 @@ export const reset = () => {
 export const peso = (option) => {
     return {
         type: PESO,
+        payload: option,
+    }
+}
+
+export const alfabeto = (option) => {
+    return {
+        type: ALFABETO,
+        payload: option,
+    }
+}
+
+export const origen = (option) => {
+    console.log(option);
+    return {
+        type: ORIGEN,
         payload: option,
     }
 }

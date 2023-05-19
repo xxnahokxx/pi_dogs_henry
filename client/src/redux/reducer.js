@@ -1,4 +1,4 @@
-import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO } from "./types";
+import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO, ORIGEN } from "./types";
 
 const initialState = {
     search: [],
@@ -26,13 +26,13 @@ const reducer = (state = initialState, { type, payload }) => {
         case PESO:
             const orden = state.search.length === 0
                 ? [...state.allDogs].sort((a, b) => {
-                if (payload === "Ascendente") {
-                    return a.weight.localeCompare(b.weight)
-                }
-                if (payload === "Descendente") {
-                    return b.weight.localeCompare(a.weight)
-                }
-                return 0
+                    if (payload === "Ascendente") {
+                        return a.weight.localeCompare(b.weight)
+                    }
+                    if (payload === "Descendente") {
+                        return b.weight.localeCompare(a.weight)
+                    }
+                    return 0
                 })
                 : [...state.search].sort((a, b) => {
                     if (payload === "Ascendente") {
@@ -48,24 +48,52 @@ const reducer = (state = initialState, { type, payload }) => {
         case ALFABETO:
             const alfa = state.search.length === 0
                 ? [...state.allDogs].sort((a, b) => {
-                    if (payload === "Ascendente") {
+                    if (payload === "A-Z") {
                         return a.name.localeCompare(b.name)
                     }
-                    if (payload === "Descendente") {
+                    if (payload === "Z-A") {
                         return b.name.localeCompare(a.name)
                     }
                     return 0
                 })
                 : [...state.search].sort((a, b) => {
-                    if (payload === "Ascendente") {
+                    if (payload === "A-Z") {
                         return a.name.localeCompare(b.name)
                     }
-                    if (payload === "Descendente") {
+                    if (payload === "Z-A") {
                         return b.name.localeCompare(a.name)
                     }
                     return 0
                 });
             return { ...state, filtros: alfa };
+
+        case ORIGEN:
+            const origen = state.search.length === 0
+                ? [...state.allDogs].filter(el => {
+                    if (payload === "API") {
+                        if (el.id < 300) {
+                            return el
+                        }
+                    } else if (payload === "DB") {
+                        if (el.id >= 300) {
+                            return el
+                        }
+                    }
+                    return 0
+                })
+                : [...state.search].filter(el => {
+                    if (payload === "API") {
+                        if (el.id < 300) {
+                            return el
+                        }
+                    } else if (payload === "DB") {
+                        if (el.id >= 300) {
+                            return el
+                        }
+                    }
+                    return 0
+                })
+            return { ...state, filtros: origen }
 
         default:
             return { ...state };

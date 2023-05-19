@@ -4,3 +4,4 @@ export const RESET= "RESET";
 export const DATA_ID= "DATA_ID";
 export const PESO = "PESO";
 export const ALFABETO = "ALFABETO";
+export const ORIGEN = "ORIGEN";
