@@ -22,6 +22,9 @@ function Search({ busqueda, reset }) {
         setRaza("");
     }
 
+    
+
+
     return (
         <>
             <div className={style.content}>

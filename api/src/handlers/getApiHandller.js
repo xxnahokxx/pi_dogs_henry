@@ -4,8 +4,8 @@ const { END_POINT, API_KEY } = process.env;
 
 const getApiHandller = async (search) => {
 
-        const { data } = await axios.get(`${END_POINT}/search?q=${search}&api_key=${API_KEY}`)
-        const info = data.map(el => {
+    const { data } = await axios.get(`${END_POINT}/search?q=${search}&api_key=${API_KEY}`)
+    const info = data.map(el => {
             return {
                 id: el.id,
                 image: el.reference_image_id,
@@ -15,9 +15,14 @@ const getApiHandller = async (search) => {
                 height: el.height.metric,
                 life_span: el.life_span,
             }
-        });
+    });
+    console.log(info);
+    const infoSin = info.filter(el => {
+        if (el.image !== undefined) {
+           return el
+    } })
 
-        return info;
+    return infoSin;
 
 }
 

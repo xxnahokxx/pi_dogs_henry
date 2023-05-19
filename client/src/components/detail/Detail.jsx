@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getRazaId } from "../../redux/actions";
 import style from "./detail.module.css";
@@ -52,18 +52,5 @@ const Detail = () => {
     )
 }
 
-// const mapStateToProps = (state) => {
-//     return {
-//         detail: state.detail,
-//     }
-// }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         dataId: (id) => dispatch(getRazaId(id))
-//     }
-// }
-
-
-
-export default connect(null, null)(Detail);
+export default Detail;

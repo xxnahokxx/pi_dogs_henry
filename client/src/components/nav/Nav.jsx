@@ -1,11 +1,16 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "../search/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { peso } from "../../redux/actions";
+import { useEffect } from "react";
 // import logo from "../../utils/images/icon_doggy.svg"
 
 export default function Nav() {
 
     const location = useLocation();
+    const dispatch = useDispatch();
+    const busqueda = useSelector(state => state.search);
 
     const { pathname } = location;
 
@@ -15,6 +20,10 @@ export default function Nav() {
         }
         return false;
     };
+
+    useEffect(()=> {
+        dispatch(peso());
+    },[busqueda])
 
     const pos = checkHome();
     const navigate = useNavigate();
@@ -67,11 +76,34 @@ export default function Nav() {
                     <div className={style.navOptions}>
                         <ul className={style.list}>
                             <li className={style.itemList}> <a onClick={landingPage}>Home</a> </li>
-                            <li className={style.itemList}> <a href="#">opcion 2</a> </li>
-                            <li className={style.itemList}> <a href="#">opcion 3</a> </li>
+                            <li className={style.itemList}>
+                                <h4>Alfabetico</h4>
+                                <select href="#" name="alfabetico" key="alfabetico">
+                                    <option value="Seleccionar">Seleccionar</option>
+                                    <option value="A-Z">A-Z</option>
+                                    <option value="Z-A">Z-A</option>
+                                </select>
+                            </li>
+                            <li className={style.itemList}>
+                                <h4>Peso</h4>
+                                <select href="#" name="peso" key="peso" onChange={(event)=> dispatch(peso(event.target.value))}>
+                                    <option value="Seleccionar">Seleccionar</option>
+                                    <option value="Ascendente">Ascendente</option>
+                                    <option value="Descendente">Descendente</option>
+                                </select>
+                            </li>
+                            <li className={style.itemList}>
+                                <h4>Origen</h4>
+                                <select href="#" name="origen" key="origen">
+                                    <option value="ALL">Todos</option>
+                                    <option value="API">API</option>
+                                    <option value="DB">DB</option>
+                                </select>
+                            </li>
+                            <li className={style.itemList}> <a href="#">Crear</a> </li>
                         </ul>
 
-                        <Search/>
+                        <Search />
                     </div>
                 </div>
             </div>

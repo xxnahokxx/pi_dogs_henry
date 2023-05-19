@@ -38,6 +38,8 @@
 
 .itemList {
   margin: 0 15px;
+  display: flex;
+  align-items: center;
 }
 
 a {

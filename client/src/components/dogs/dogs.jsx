@@ -1,25 +1,32 @@
 import React, { useEffect, useState } from "react";
 import style from "./dogs.module.css";
 import Card from "../card/Card";
-import { connect } from "react-redux";
-import { allDogs } from "../../redux/actions";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { allDogs, peso } from "../../redux/actions";
 import usePagination from 'react-paginate';
 
 
 function Dogs({ search, allDogs }) {
 
-    // console.log(allDogs);
-    // console.log(search);
+    const dispatch = useDispatch();
+    const result = useSelector(state => state.filtros)
+    console.log(result);
 
-    const [currentPage, setCurrentPage] = useState(0);
+    useEffect(() => {
+        dispatch(peso());
+    }, [])
 
-    // const { pageCount, pageRangeDisplayed, marginPagesDisplayed, onPageChange } = usePagination({
-    //     pageCount: 10,
-    //     pageRangeDisplayed: 3,
-    //     marginPagesDisplayed: 1,
-    //     onPageChange: ({ selected }) => setCurrentPage(selected),
-    // });
-
+    const condicion = () => {
+        if (result.length > 0) {
+            return search.length === 0 ?
+                result.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
+                :
+                result.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
+        }
+        if (result.length === 0) {
+            return allDogs.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
+        }
+    }
 
     return (
         <>
@@ -28,10 +35,7 @@ function Dogs({ search, allDogs }) {
                 <div className={style.templateDogs}>
 
                     {
-                        search.length === 0 ?
-                            allDogs.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
-                            :
-                            search.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={`https://cdn2.thedogapi.com/images/${image}.jpg`} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
+                        condicion()
                     }
 
                 </div>
