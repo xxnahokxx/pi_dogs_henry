@@ -1,4 +1,4 @@
-import { SEARCH, ALL_DOGS, RESET, DATA_ID } from "./types";
+import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO } from "./types";
 import axios from "axios";
 const endpoint = "http://localhost:3001";
 
@@ -56,6 +56,13 @@ export const reset = () => {
     return {
         type: RESET,
         payload: [],
+    }
+}
+
+export const peso = (option) => {
+    return {
+        type: PESO,
+        payload: option,
     }
 }
 
