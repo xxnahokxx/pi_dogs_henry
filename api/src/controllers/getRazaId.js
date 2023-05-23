@@ -13,7 +13,7 @@ const getRazaId = async (req, res) => {
         if (info2.length === 0 && info === undefined) return res.status(404).send({ message: "Perro no encontrado" })
 
         if (info === undefined) {
-            return res.status(200).json(info2);
+            return res.status(200).json(info2[0]);
         }
 
         const { id,

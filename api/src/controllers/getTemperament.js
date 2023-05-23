@@ -1,5 +1,6 @@
 const axios = require('axios');
 const postTemperamentsHandlers = require("../handlers/postTemperamentsHandler");
+const getTemperamentsHandler = require("../handlers/getTemperamentsHandler")
 require("dotenv").config();
 const { END_POINT, API_KEY } = process.env;
 
@@ -26,7 +27,9 @@ const getTemperament = async (req, res) => {
 
         await postTemperamentsHandlers(temp);
 
-        res.status(200).json(temp);
+        const respuesta = await getTemperamentsHandler();
+
+        res.status(200).json(respuesta);
 
     } catch (error) {
         res.status(500).json({ error: error.message });
