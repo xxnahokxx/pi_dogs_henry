@@ -1,0 +1,19 @@
+.app {
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  border: 1px solid transparent;
+}
+
+.darkmode {
+    background: #212121;
+    color: #ffffff;
+    transition: all .5s;
+}
+
+.lightmode {
+    background: #ffffff;
+    color: #212121;
+    transition: all .5s;
+}
