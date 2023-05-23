@@ -1,7 +1,10 @@
-export const SEARCH= "SEARCH";
-export const ALL_DOGS= "ALL_DOGS";
-export const RESET= "RESET";
-export const DATA_ID= "DATA_ID";
+export const SEARCH = "SEARCH";
+export const ALL_DOGS = "ALL_DOGS";
+export const RESET = "RESET";
+export const DATA_ID = "DATA_ID";
 export const PESO = "PESO";
 export const ALFABETO = "ALFABETO";
 export const ORIGEN = "ORIGEN";
+export const TEMPERAMENT = "TEMPERAMENT";
+export const TEMP_FILTER = "TEMP_FILTER";
+export const ADD_DOGGY = "ADD_DOGGY";
