@@ -1,4 +1,4 @@
-import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY } from "./types";
+import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE } from "./types";
 
 const initialState = {
     search: [],
@@ -8,6 +8,7 @@ const initialState = {
     filtros: [],
     temperaments: [],
     addDoggy: [],
+    darkMode: false,
 };
 
 
@@ -29,6 +30,9 @@ const reducer = (state = initialState, { type, payload }) => {
 
         case ADD_DOGGY:
             return {...state,  addDoggy: payload}
+
+        case DARK_MODE:
+            return {...state, darkMode: !state.darkMode}
 
         case PESO:
 

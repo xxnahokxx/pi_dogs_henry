@@ -1,4 +1,4 @@
-import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY } from "./types";
+import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE } from "./types";
 import axios from "axios";
 const endpoint = "http://localhost:3001";
 
@@ -115,6 +115,12 @@ export const tempFilter = (option) => {
     return {
         type: TEMP_FILTER,
         payload: option,
+    }
+}
+
+export const darkMode = () => {
+    return {
+        type: DARK_MODE,
     }
 }
 

@@ -8,3 +8,4 @@ export const ORIGEN = "ORIGEN";
 export const TEMPERAMENT = "TEMPERAMENT";
 export const TEMP_FILTER = "TEMP_FILTER";
 export const ADD_DOGGY = "ADD_DOGGY";
+export const DARK_MODE = "DARK_MODE";
