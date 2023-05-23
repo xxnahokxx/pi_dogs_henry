@@ -1,3 +1,31 @@
 .content {
     display: flex;
 }
+
+.button , .input {
+    background: rgb(36, 181, 224);
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 10px;
+    transition: all .5s;
+}
+
+.input {
+    max-width: 130px;
+}
+
+.input:active {
+    border: red;
+}
+
+.input::placeholder {
+    color: white;
+}
+
+.button:hover {
+    background: white;
+    border: 1px solid rgb(36, 181, 224);
+    border-radius: 10px;
+    color: rgb(36, 181, 224);
+}

@@ -1,9 +1,85 @@
-.nav {
+.darkMode {
   width: 100%;
   position: sticky;
   top: 0px;
   z-index: 200;
-  background-color: #24B5E0;
+  background-color: #197794;
+  transition: all 0.5s;
+  .select {
+    position: relative;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    background: #197794;
+    color: white;
+    font-weight: bold;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .select:focus,
+  .select:hover {
+    border-color: #ffffff;
+    border: 3px solid #eeeeee;
+  }
+
+  .select:active {
+    border-color: rgb(31, 199, 183);
+  }
+
+  .modeButton {
+    position: absolute;
+    left: 70%;
+    top: 40px;
+    background: #197794;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all .5s;
+  }
+}
+
+.lightMode {
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  z-index: 200;
+  background-color: #24b5e0;
+  transition: all 0.5s;
+  .select {
+    position: relative;
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    background: rgb(36, 181, 224);
+    color: white;
+    font-weight: bold;
+    appearance: none;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+
+  .select:focus,
+  .select:hover {
+    border-color: #ffffff;
+    border: 3px solid #eeeeee;
+  }
+
+  .select:active {
+    border-color: rgb(31, 199, 183);
+  }
+
+  .modeButton {
+    position: absolute;
+    left: 70%;
+    top: 40px;
+    background: #24b5e0;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all .5s;
+  }
 }
 
 .content {
@@ -19,8 +95,8 @@
 }
 
 .titleContent {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .logo {

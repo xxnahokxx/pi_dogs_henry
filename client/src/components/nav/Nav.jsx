@@ -3,27 +3,31 @@ import { useLocation, useNavigate } from "react-router-dom";
 import style from "./nav.module.css";
 import Search from "../search/Search";
 import { useDispatch, useSelector } from "react-redux";
-import { alfabeto, origen, peso } from "../../redux/actions";
+import { alfabeto, origen, peso, tempFilter, temperamentos } from "../../redux/actions";
 import { useEffect } from "react";
 // import logo from "../../utils/images/icon_doggy.svg"
 
-export default function Nav() {
+export default function Nav(props) {
 
     const location = useLocation();
     const dispatch = useDispatch();
     const busqueda = useSelector(state => state.search);
+    const temperamento = useSelector(state => state.temperaments);
+    const modoOscuro = useSelector(state => state.darkMode);
+
 
     const { pathname } = location;
 
     const checkHome = () => {
-        if (pathname === "/dogs" || pathname === "/dogs/:id" || pathname === "/dogs/create") {
-            return true;
+        if (pathname === "/" || pathname === "/home") {
+            return false;
         }
-        return false;
+        return true;
     };
 
     useEffect(() => {
         dispatch(peso());
+        dispatch(temperamentos())
     }, [busqueda, dispatch])
 
     const pos = checkHome();
@@ -34,7 +38,7 @@ export default function Nav() {
     if (pos) {
         return (
 
-            <div className={style.nav}>
+            <div className={modoOscuro ? style.darkMode : style.lightMode}>
                 <div className={style.content}>
                     <div>
                         <a onClick={landingPage}>
@@ -81,27 +85,32 @@ export default function Nav() {
                     <div className={style.navOptions}>
                         <ul className={style.list}>
                             <li className={style.itemList}>
-                                <h4>Alfabetico</h4>
-                                <select href="#" name="alfabetico" key="alfabetico" onChange={(event) => dispatch(alfabeto(event.target.value))}>
-                                    <option value="Seleccionar">Seleccionar</option>
+                                <select className={style.select} href="#" name="alfabetico" key="alfabetico" onChange={(event) => dispatch(alfabeto(event.target.value))}>
+                                    <option value="Seleccionar">Orden Alfabetico</option>
                                     <option value="A-Z">A-Z</option>
                                     <option value="Z-A">Z-A</option>
                                 </select>
                             </li>
                             <li className={style.itemList}>
-                                <h4>Peso</h4>
-                                <select href="#" name="peso" key="peso" onChange={(event) => dispatch(peso(event.target.value))}>
-                                    <option value="Seleccionar">Seleccionar</option>
+                                <select className={style.select} href="#" name="peso" key="peso" onChange={(event) => dispatch(peso(event.target.value))}>
+                                    <option value="Seleccionar">Ordenar por Peso</option>
                                     <option value="Ascendente">Ascendente</option>
                                     <option value="Descendente">Descendente</option>
                                 </select>
                             </li>
                             <li className={style.itemList}>
-                                <h4>Origen</h4>
-                                <select href="#" name="origen" key="origen" onChange={(event) => dispatch(origen(event.target.value))}>
+                                <select className={style.select} href="#" name="origen" key="origen" onChange={(event) => dispatch(origen(event.target.value))}>
+                                    <option value="ALL">Origen</option>
                                     <option value="ALL">Todos</option>
                                     <option value="API">API</option>
                                     <option value="DB">DB</option>
+                                </select>
+                            </li>
+                            <li className={style.itemList}>
+                                <select className={style.select} href="#" name="origen" key="origen" onChange={(event) => dispatch(tempFilter(event.target.value))}>
+                                    <option value="ALL">Selecciona Temperamento</option>
+                                    <option value="ALL">Todos</option>
+                                    {temperamento.map(el => <option key={el.id} value={el.name}>{el.name}</option>)}
                                 </select>
                             </li>
                             <li className={style.itemList}>
@@ -111,6 +120,18 @@ export default function Nav() {
                                     // eslint-disable-next-line jsx-a11y/anchor-is-valid
                                     : <a onClick={doggys}>Dogs</a>
                                 }
+                            </li>
+                            <li className={style.modeButton}>
+                                <a onClick={props.color}>
+                                    {modoOscuro
+                                        ? <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-low-fill" viewBox="0 0 16 16">
+                                            <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8.5 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z" />
+                                        </svg>
+                                        : <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-brightness-low" viewBox="0 0 16 16">
+                                            <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z" />
+                                        </svg>
+                                        }
+                                </a>
                             </li>
                         </ul>
 

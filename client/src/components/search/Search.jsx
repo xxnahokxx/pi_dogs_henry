@@ -29,9 +29,9 @@ function Search({ busqueda, reset, allDogs }) {
         <>
             <div className={style.content}>
 
-                <button onClick={() => handleAll(raza)}  >All</button>
+                <button className={style.button} onClick={() => handleAll(raza)}  >All</button>
                 <form action="" onSubmit={handleSubmit} onChange={() => busqueda(raza)}>
-                    <input placeholder="Busca por raza..." type="search" onChange={handleInputChange} value={raza} />
+                    <input className={style.input} placeholder="Busca por raza..." type="search" onChange={handleInputChange} value={raza} />
                     {/* <button onClick={() => busqueda(raza)}  >search</button> */}
                 </form>
 

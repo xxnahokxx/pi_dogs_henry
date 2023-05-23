@@ -8,7 +8,6 @@ function Card(props) {
     const link = "https://cdn2.thedogapi.com/images/";
     const [errorImage, setErrorImage] = useState(false);
     const [errorImage2, setErrorImage2] = useState(false);
-    const [errorImage3, setErrorImage3] = useState(false);
 
     const handlerErrorImage = () => {
         setErrorImage(true);
@@ -18,6 +17,9 @@ function Card(props) {
         setErrorImage2(true);
     }
 
+    console.log(errorImage);
+    console.log(errorImage2);
+    console.log(props.image);
 
     const imagen = () => {
 

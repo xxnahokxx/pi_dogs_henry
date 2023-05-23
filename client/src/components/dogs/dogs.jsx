@@ -1,32 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./dogs.module.css";
-import Card from "../card/Card";
-import { connect, useDispatch, useSelector } from "react-redux";
-import { allDogs, peso } from "../../redux/actions";
-import usePagination from 'react-paginate';
+import { connect, useSelector } from "react-redux";
+import { allDogs} from "../../redux/actions";
+import Pagination from "../paginado/paginado";
 
 
 function Dogs({ search, allDogs }) {
 
-    const dispatch = useDispatch();
     const result = useSelector(state => state.filtros)
-    console.log(result);
+    const temFilter = useSelector(state => state.dogsFilter)
 
-    useEffect(() => {
-        dispatch(peso());
-    }, [])
-
-    const condicion = () => {
+    const condicionDato = () => {
         if (result.length > 0) {
-            return search.length === 0 ?
-                result.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
-                :
-                result.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
+            return temFilter.length === 0
+                ? result
+                : temFilter
         }
         if (result.length === 0) {
-            return allDogs.map(({ id, image, name, temperament, weight, height, life_span }) => <Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />)
+            return temFilter.length === 0
+                ? allDogs
+                : temFilter
         }
     }
+    const data = condicionDato();
 
     return (
         <>
@@ -35,7 +31,7 @@ function Dogs({ search, allDogs }) {
                 <div className={style.templateDogs}>
 
                     {
-                        condicion()
+                        Pagination(data)
                     }
 
                 </div>
