@@ -1,0 +1,72 @@
+.content {
+    display: flex;
+    /* flex-direction: column; */
+    /* max-width: 500px; */
+    margin: 0 auto;
+    align-items: center;
+}
+
+.rango{
+    width: 50%;
+    margin: 0;
+    text-align: center;
+}
+
+.rangoGrupo{
+    display: flex;
+    justify-content: center;
+}
+
+.descripcion{
+    max-width: 300px;
+    font-size: 20px;
+
+}
+
+input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    width: 100%;
+}
+
+.formulario {
+    width: 400px;
+    background: rgb(36, 181, 224);
+    color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 40px 0;
+}
+
+.seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin: 15px auto;
+
+    & select {
+        width: 100%;
+        height: 200px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        text-align: center;
+    }
+}
+
+.button {
+    margin: auto;
+};
+
+.titulo {
+      text-align: center;
+}
+
+.error {
+    color: brown;
+    font-weight: bold;
+
+}
