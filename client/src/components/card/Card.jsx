@@ -45,7 +45,7 @@ function Card(props) {
                 {imagen()}
             </Link>
             <h3 className={style.subTitle}>Weight:</h3>
-            <p className={style.weight}>{props.weight} lb</p>
+            <p className={style.weight}>{props.weight} Kg</p>
             <h3 className={style.subTitle}>Temperaments:</h3>
             <p className={style.temperament}>{props.temperament}</p>
             <h5 className={style.id}>#{props.id}</h5>
