@@ -13,4 +13,5 @@ module.exports = {
     getAllDbHandler,
     getIdDbHandler,
     postTemperamentsHandler,
+    countDbHandler,
 }

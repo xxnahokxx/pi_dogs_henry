@@ -1,5 +1,4 @@
-const countDbHandler = require("../handlers/countDbHandler");
-const { dogPostHandlers } = require("../handlers/index")
+const { dogPostHandlers, countDbHandler } = require("../handlers/index")
 
 const dogPost = async (req, res) => {
     const { name, height, weight, life_span, temperament, image } = req.body;

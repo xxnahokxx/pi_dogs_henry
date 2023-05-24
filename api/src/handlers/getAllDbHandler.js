@@ -5,7 +5,7 @@ const getAllDbHandler = async () => {
         {
             include: {
                 model: Temperament,
-                attributes: ["name"],
+                attributes: ["names"],
                 through: {
                     attributes: [],
                 },
@@ -14,7 +14,7 @@ const getAllDbHandler = async () => {
     );
 
     const value = data.map(el => {
-        const temperaments = el.Temperaments.map((t) => t.name);
+        const temperaments = el.Temperaments.map((t) => t.names);
         return {
             id: el.id,
             name: el.name,
@@ -22,7 +22,7 @@ const getAllDbHandler = async () => {
             height: el.height,
             weight: el.weight,
             life_span: el.life_span,
-            temperament: temperaments.toString(", "),
+            temperament: temperaments.join(", "),
         }
     })
 

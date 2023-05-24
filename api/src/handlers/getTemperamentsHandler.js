@@ -6,7 +6,7 @@ const getTemperamentsHandler = async () => {
     const value = dato.map(el => {
         return {
             id: el.id,
-            name: el.name,
+            names: el.names,
         }
     })
 

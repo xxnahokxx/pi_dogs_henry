@@ -6,7 +6,7 @@ const getIdDbHandler = async (id) => {
         where: { id },
         include: {
             model: Temperament,
-            attributes: ["name"],
+            attributes: ["names"],
             through: {
                 attributes: [],
             },
@@ -14,15 +14,15 @@ const getIdDbHandler = async (id) => {
     })
 
     const value = data.map(el => {
-        const temperaments = el.Temperaments.map((t) => t.name);
+        const temperaments = el.Temperaments.map((t) => t.names);
         return {
             id: el.id,
             name: el.name,
             image: el.image,
             height: el.height,
             weight: el.weight,
-            life_span: el.life_span,
-            temperament: temperaments.toString(", "),
+            life_span: `${el.life_span} years`,
+            temperament: temperaments.join(", "),
         }
     })
 
