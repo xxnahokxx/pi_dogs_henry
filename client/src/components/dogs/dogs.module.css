@@ -1,18 +1,91 @@
-.title {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
-    font-weight: 600;
-}
-
 .content {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .templateDogs {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr) ;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
 
+.contentImageBar {
+  max-width: 1200px;
+  max-height: 450px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  box-sizing: border-box;
+  border-radius: 0 0 0 50px;
+}
+
+.imageBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Este valor asegura que la imagen cubra todo el contenedor */
+  z-index: -1;
+}
+
+
+
+.expandido {
+  height: 450px;
+}
+
+.minimizado {
+  height: 150px;
+}
+
+.minimizado, .expandido {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-size: 40px;
+  font-weight: 600;
+  position: relative;
+  z-index: 100;
+  transition: all .5s;
+
+
+  .title {
+    font-size: 40px;
+    margin: 0 0 0 40px;
+    color: white;
+  }
+
+  .message {
+    font-size: 20px;
+    margin: 0 0 40px 40px;
+    color: rgb(171, 170, 170);
+  }
+
+  .redes {
+    margin: 0 40px;
+    & svg {
+      margin: 10px;
+    }
+  }
+
+  .linked:hover {
+    transition: all 0.5s;
+    color: rgb(13, 83, 145);
+  }
+  .github:hover {
+    transition: all 0.5s;
+    color: rgb(169, 169, 169);
+  }
+}
+
+
+.cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Color de fondo para el div */
+  z-index: 1;
 }

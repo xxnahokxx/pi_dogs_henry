@@ -1,19 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import style from "./formCreate.module.css";
 import { useSelector, useDispatch } from "react-redux"
 import { postDogs } from "../../redux/actions";
 import validation from "./validation";
 import Card from "../card/CardPreview";
+import Swal from "sweetalert2";
+import "./modal.css";
+import { useNavigate } from "react-router-dom";
 
 const FormCreate = () => {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
 
     const formRef = useRef(null);
 
     const temperamentos = useSelector(state => state.temperaments);
-
     const [dataDoggy, setDataDoggy] = useState({
         name: "",
         image: "",
@@ -45,30 +49,69 @@ const FormCreate = () => {
         setErrorDataDoggy(validation({ ...dataDoggy, [name]: value }));
     }
 
-    console.log(dataDoggy.temperament);
+    const handleShowAlert = () => {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¿los datos ingresados son correctos?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#9beb85',
+            cancelButtonColor: '#cb7b14',
+            confirmButtonText: 'Sí, Crealo!',
+            background: '#51aff7',
+            customClass: {
+                container: style['container'],
+                confirmButton: style['btn-confirm'],
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                let data = {
+                    name: dataDoggy.name,
+                    image: dataDoggy.image,
+                    height: `${dataDoggy.heightMin} - ${dataDoggy.heightMax}`,
+                    weight: `${dataDoggy.weightMin} - ${dataDoggy.weightMax}`,
+                    life_span: `${dataDoggy.lifeMin} - ${dataDoggy.lifeMax}`,
+                    temperament: dataDoggy.temperament,
+                };
+
+                dispatch(postDogs(data));
+                Swal.fire({
+                    title: "¡Bien!",
+                    text: `se a creado a ${dataDoggy.name} satisfactoriamente...`,
+                    icon: "success",
+                    background: "#51aff7",
+                    confirmButtonColor: '#37ff00',
+                    customClass: {
+                        container: style['container'],
+                        confirmButton: style['btn-confirm'],
+                    },
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate("/dogs");
+                    }
+                });
+
+
+                formRef.current.reset();
+
+            } else if (result.isDenied) {
+            }
+        })
+    }
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        let data = {
-            name: dataDoggy.name,
-            image: dataDoggy.image,
-            height: `${dataDoggy.heightMin} - ${dataDoggy.heightMax}`,
-            weight: `${dataDoggy.weightMin} - ${dataDoggy.weightMax}`,
-            life_span: `${dataDoggy.lifeMin} - ${dataDoggy.lifeMax}`,
-            temperament: dataDoggy.temperament,
-        };
 
         const arrErrors = Object.values(errorDataDoggy).length;
-
         if (arrErrors === 0) {
-            dispatch(postDogs(data));
-            formRef.current.reset();
+            handleShowAlert();
         }
 
     }
 
-    console.log(dataDoggy);
 
     return (
         <>
@@ -76,7 +119,7 @@ const FormCreate = () => {
 
                 <div >
                     <div>
-                        <h1 className={style.titulo} style={{ textAlign: "center" }}>Describenos el perrito que deseas integrar</h1>
+                        <h1 className={style.titulo} style={{ textAlign: "center" }}>Describenos el perrito que deseas agregar</h1>
                     </div>
                     <form className={style.formulario} ref={formRef} action="post" onSubmit={handleSubmit}>
                         <div className={style.seccion}>
@@ -86,14 +129,14 @@ const FormCreate = () => {
                             <span className={style.error}>{errorDataDoggy.name}</span>
                         </div>
 
-                        <div className={style.seccion}>
+                        { !errorDataDoggy.name && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">URL Image:
                             </label>
                             <input name="image" type="text" onChange={handleChanges} />
                             <span className={style.error}>{errorDataDoggy.image}</span>
-                        </div>
+                        </div>}
 
-                        <div className={style.seccion}>
+                        { !errorDataDoggy.image && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">Height:
                             </label>
                             <div className={style.rangoGrupo}>
@@ -102,9 +145,9 @@ const FormCreate = () => {
                             </div>
                             <span className={style.error}>{errorDataDoggy.heightMin}</span>
                             <span className={style.error}>{errorDataDoggy.heightMax}</span>
-                        </div>
+                        </div>}
 
-                        <div className={style.seccion}>
+                        { !errorDataDoggy.heightMin && !errorDataDoggy.heightMax && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">weight:
                             </label>
                             <div className={style.rangoGrupo}>
@@ -113,8 +156,9 @@ const FormCreate = () => {
                             </div>
                             <span className={style.error}>{errorDataDoggy.weightMin}</span>
                             <span className={style.error}>{errorDataDoggy.weightMax}</span>
-                        </div>
-                        <div className={style.seccion}>
+                        </div>}
+
+                        {!errorDataDoggy.weightMin && !errorDataDoggy.weightMax && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">Life span:
                             </label>
                             <div className={style.rangoGrupo}>
@@ -123,21 +167,25 @@ const FormCreate = () => {
                             </div>
                             <span className={style.error}>{errorDataDoggy.lifeMin}</span>
                             <span className={style.error}>{errorDataDoggy.lifeMax}</span>
-                        </div>
+                        </div>}
 
-                        <div className={style.seccion}>
+                        { !errorDataDoggy.lifeMin && !errorDataDoggy.lifeMax && <div className={style.seccion}>
                             <label value="Select">
                                 Selecciona el temperamento:
                             </label>
-                            <select name="temperament" id="temperament" multiple  onChange={handleChanges}>
-                                {temperamentos.map(el => <option key={el.id} value={el.id}>{el.name}</option>)}
+                            <select name="temperament" id="temperament" multiple onChange={handleChanges}>
+                                {temperamentos.map(el => <option key={el.id} value={el.id}>{el.names}</option>)}
                             </select>
-                        </div>
-                        <button className={style.button} type="submit">Crear Doggy</button>
+                            <span className={style.error}>{errorDataDoggy.temperament}</span>
+                            <span>si deseas seleccionar mas de un temperamento, manten oprimido CTRL al hacer click</span>
+                        </div>}
+                        { !errorDataDoggy.temperament && <button className={style.button} type="submit">Crear Doggy</button>}
                     </form>
 
                 </div>
-                <Card name={dataDoggy.name} image={dataDoggy.image} weight={`${dataDoggy.weightMin} - ${dataDoggy.weightMax}`} temperament={dataDoggy.temperament}></Card>
+                <div>
+                    <Card name={dataDoggy.name} image={dataDoggy.image} weight={`${dataDoggy.weightMin} - ${dataDoggy.weightMax}`} temperament={dataDoggy.temperament}></Card>
+                </div>
             </div>
         </>
     )

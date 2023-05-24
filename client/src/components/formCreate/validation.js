@@ -3,11 +3,11 @@ export default function validation(inputs) {
     const regexEnlace = /^(ftp|http|https):\/\/[^ "]+$/
     const errors = {};
 
-    if (inputs.name === "") {
+    if (!inputs.name) {
         errors.name = "Tiene que tener un nombre.";
     }
-    if (inputs.name.length < 5 || inputs.name.length > 10) {
-        errors.name = "minimo tiene que tener 5 letras maximo 10";
+    if (inputs.name.length > 10) {
+        errors.name = "tiene que tener maximo 10";
     }
     if (inputs.image === "") {
         errors.image = "Tiene que tener una imagen.";
@@ -37,15 +37,14 @@ export default function validation(inputs) {
     }
 
     // validacion de weight::::::::
-
     if (Number(inputs.weightMin) <= 0 || Number(inputs.weightMax) <= 0) {
         errors.weightMin = "Tiene que tener una cantidad positiva";
     }
     if (inputs.weightMax === "") {
-        errors.weightMax = "Tiene que tener una altura maxima.";
+        errors.weightMax = "Tiene que tener una peso maximo.";
     }
     if (inputs.weightMin === "") {
-        errors.weightMin = "Tiene que tener una altura minima.";
+        errors.weightMin = "Tiene que tener una peso minimo.";
     }
     if (!regexNumber.test(inputs.weightMin)) {
         errors.weightMin = "tiene que ser un numero entero positivo.";
@@ -65,10 +64,10 @@ export default function validation(inputs) {
     }
 
     if (inputs.lifeMax === "") {
-        errors.lifeMax = "Tiene que tener una altura maxima.";
+        errors.lifeMax = "Tiene que tener una vida maxima.";
     }
     if (inputs.lifeMin === "") {
-        errors.lifeMin = "Tiene que tener una altura minima.";
+        errors.lifeMin = "Tiene que tener una vida minima.";
     }
     if (!regexNumber.test(inputs.lifeMin)) {
         errors.lifeMin = "tiene que ser un numero entero positivo.";
@@ -80,24 +79,12 @@ export default function validation(inputs) {
         errors.lifeMin = "el valor minimo tiene que se menor al maximo";
     }
 
+    // validacion temperaments::::::::
 
+    if (inputs.temperament.length === 0) {
+        errors.temperament = "selecciona como minimo un temperamento";
+    }
 
-
-
-
-
-
-
-    /* else if (!regexEmail.test(inputs.userName)) { */
-    //     errors.userName = "Debe ser un correo electronico";
-    // } else if (inputs.userName.length > 35) {
-    //     errors.userName = "el correo no puede tener más de 35 caracteres.";
-    // }
-    // if (inputs.password === "") {
-    //     errors.password = "Digita la contraseña";
-    // } else if (inputs.password.length < 6 || inputs.password.length > 10) {
-    //     errors.password = "La contraseña debe tener una longitud entre 6 a 10 caracteres.";
-    // }
 
     return errors;
 }
