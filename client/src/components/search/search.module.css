@@ -1,31 +1,64 @@
-.content {
-    display: flex;
+.blackMode {
+  display: flex;
+
+  .button,.input {
+    background: rgb(10, 89, 116);
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 5px 10px;
+    transition: all 0.5s;
+  }
+
+  .input {
+    max-width: 130px;
+  }
+
+  .input:active {
+    border: red;
+  }
+
+  .input::placeholder {
+    color: white;
+  }
+
+  .button:hover {
+    background: rgb(36, 181, 224);
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+  }
 }
 
-.button , .input {
+.lightMode {
+  display: flex;
+
+  .button,
+  .input {
     background: rgb(36, 181, 224);
     border: 1px solid white;
     border-radius: 10px;
     color: white;
     padding: 5px 10px;
-    transition: all .5s;
-}
+    transition: all 0.5s;
+  }
 
-.input {
+  .input {
     max-width: 130px;
-}
+  }
 
-.input:active {
+  .input:active {
     border: red;
-}
+  }
 
-.input::placeholder {
+  .input::placeholder {
     color: white;
-}
+  }
 
-.button:hover {
+  .button:hover {
     background: white;
     border: 1px solid rgb(36, 181, 224);
     border-radius: 10px;
     color: rgb(36, 181, 224);
+  }
 }

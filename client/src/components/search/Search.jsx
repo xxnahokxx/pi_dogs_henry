@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import { allDogs, getNameDogs, reset } from "../../redux/actions";
 import { useState } from "react";
 import style from "./search.module.css"
@@ -22,12 +22,12 @@ function Search({ busqueda, reset, allDogs }) {
         allDogs();
     }
 
-
+    const modoOscuro = useSelector(state => state.darkMode);
 
 
     return (
         <>
-            <div className={style.content}>
+            <div className={modoOscuro ? style.blackMode : style.lightMode}>
 
                 <button className={style.button} onClick={() => handleAll(raza)}  >All</button>
                 <form action="" onSubmit={handleSubmit} onChange={() => busqueda(raza)}>

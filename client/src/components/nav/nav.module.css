@@ -2,7 +2,7 @@
   width: 100%;
   position: sticky;
   top: 0px;
-  z-index: 200;
+  z-index: 1000;
   background-color: #197794;
   transition: all 0.5s;
   .select {
@@ -44,7 +44,7 @@
   width: 100%;
   position: sticky;
   top: 0px;
-  z-index: 200;
+  z-index: 1000;
   background-color: #24b5e0;
   transition: all 0.5s;
   .select {

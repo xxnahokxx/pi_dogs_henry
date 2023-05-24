@@ -110,7 +110,7 @@ export default function Nav(props) {
                                 <select className={style.select} href="#" name="origen" key="origen" onChange={(event) => dispatch(tempFilter(event.target.value))}>
                                     <option value="ALL">Selecciona Temperamento</option>
                                     <option value="ALL">Todos</option>
-                                    {temperamento.map(el => <option key={el.id} value={el.name}>{el.name}</option>)}
+                                    {temperamento.map(el => <option key={el.id} value={el.names}>{el.names}</option>)}
                                 </select>
                             </li>
                             <li className={style.itemList}>
