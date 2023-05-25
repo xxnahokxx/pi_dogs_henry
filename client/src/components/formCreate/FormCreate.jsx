@@ -4,20 +4,19 @@ import { useSelector, useDispatch } from "react-redux"
 import { postDogs } from "../../redux/actions";
 import validation from "./validation";
 import Card from "../card/CardPreview";
-import Swal from "sweetalert2";
-import "./modal.css";
 import { useNavigate } from "react-router-dom";
+import ModalConfirmation from "../modal/ModalConfirmation";
 
 const FormCreate = () => {
 
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-
-
+    const dispatch = useDispatch();
 
     const formRef = useRef(null);
 
     const temperamentos = useSelector(state => state.temperaments);
+    const [showModal, setShowModal] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [dataDoggy, setDataDoggy] = useState({
         name: "",
         image: "",
@@ -42,62 +41,42 @@ const FormCreate = () => {
         temperament: "",
     })
 
+
+
+    function handleModalClose() {
+        setShowModal(false);
+    }
+
+    function handleConfirmation() {
+        let data = {
+            name: dataDoggy.name,
+            image: dataDoggy.image,
+            height: `${dataDoggy.heightMin} - ${dataDoggy.heightMax}`,
+            weight: `${dataDoggy.weightMin} - ${dataDoggy.weightMax}`,
+            life_span: `${dataDoggy.lifeMin} - ${dataDoggy.lifeMax}`,
+            temperament: dataDoggy.temperament,
+        };
+        dispatch(postDogs(data));
+        formRef.current.reset()
+        handleModalClose();
+
+        setTimeout(() => {
+            navigate("/dogs");
+        }, 3000);
+
+        setSuccess(true);
+    }
+
+    function handleModalOpen() {
+        setShowModal(true);
+    }
+
+
     const handleChanges = (event) => {
         const { value, name } = event.target
         const temperament = Array.from(event.target.querySelectorAll("select[name='temperament'] option:checked")).map(option => option.value);
         setDataDoggy({ ...dataDoggy, [name]: value, temperament: temperament })
         setErrorDataDoggy(validation({ ...dataDoggy, [name]: value }));
-    }
-
-    const handleShowAlert = () => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: '¿los datos ingresados son correctos?',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: '#9beb85',
-            cancelButtonColor: '#cb7b14',
-            confirmButtonText: 'Sí, Crealo!',
-            background: '#51aff7',
-            customClass: {
-                container: style['container'],
-                confirmButton: style['btn-confirm'],
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-
-                let data = {
-                    name: dataDoggy.name,
-                    image: dataDoggy.image,
-                    height: `${dataDoggy.heightMin} - ${dataDoggy.heightMax}`,
-                    weight: `${dataDoggy.weightMin} - ${dataDoggy.weightMax}`,
-                    life_span: `${dataDoggy.lifeMin} - ${dataDoggy.lifeMax}`,
-                    temperament: dataDoggy.temperament,
-                };
-
-                dispatch(postDogs(data));
-                Swal.fire({
-                    title: "¡Bien!",
-                    text: `se a creado a ${dataDoggy.name} satisfactoriamente...`,
-                    icon: "success",
-                    background: "#51aff7",
-                    confirmButtonColor: '#37ff00',
-                    customClass: {
-                        container: style['container'],
-                        confirmButton: style['btn-confirm'],
-                    },
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate("/dogs");
-                    }
-                });
-
-
-                formRef.current.reset();
-
-            } else if (result.isDenied) {
-            }
-        })
     }
 
 
@@ -107,10 +86,12 @@ const FormCreate = () => {
 
         const arrErrors = Object.values(errorDataDoggy).length;
         if (arrErrors === 0) {
-            handleShowAlert();
-        }
 
+            setShowModal(true);
+        }
     }
+
+
 
 
     return (
@@ -129,14 +110,14 @@ const FormCreate = () => {
                             <span className={style.error}>{errorDataDoggy.name}</span>
                         </div>
 
-                        { !errorDataDoggy.name && <div className={style.seccion}>
+                        {!errorDataDoggy.name && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">URL Image:
                             </label>
                             <input name="image" type="text" onChange={handleChanges} />
                             <span className={style.error}>{errorDataDoggy.image}</span>
                         </div>}
 
-                        { !errorDataDoggy.image && <div className={style.seccion}>
+                        {!errorDataDoggy.image && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">Height:
                             </label>
                             <div className={style.rangoGrupo}>
@@ -147,7 +128,7 @@ const FormCreate = () => {
                             <span className={style.error}>{errorDataDoggy.heightMax}</span>
                         </div>}
 
-                        { !errorDataDoggy.heightMin && !errorDataDoggy.heightMax && <div className={style.seccion}>
+                        {!errorDataDoggy.heightMin && !errorDataDoggy.heightMax && <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">weight:
                             </label>
                             <div className={style.rangoGrupo}>
@@ -169,7 +150,7 @@ const FormCreate = () => {
                             <span className={style.error}>{errorDataDoggy.lifeMax}</span>
                         </div>}
 
-                        { !errorDataDoggy.lifeMin && !errorDataDoggy.lifeMax && <div className={style.seccion}>
+                        {!errorDataDoggy.lifeMin && !errorDataDoggy.lifeMax && <div className={style.seccion}>
                             <label value="Select">
                                 Selecciona el temperamento:
                             </label>
@@ -179,14 +160,18 @@ const FormCreate = () => {
                             <span className={style.error}>{errorDataDoggy.temperament}</span>
                             <span>si deseas seleccionar mas de un temperamento, manten oprimido CTRL al hacer click</span>
                         </div>}
-                        { !errorDataDoggy.temperament && <button className={style.button} type="submit">Crear Doggy</button>}
+                        {!errorDataDoggy.temperament && <button className={style.button} type="submit">Crear Doggy</button>}
                     </form>
 
                 </div>
                 <div>
                     <Card name={dataDoggy.name} image={dataDoggy.image} weight={`${dataDoggy.weightMin} - ${dataDoggy.weightMax}`} temperament={dataDoggy.temperament}></Card>
+                    {success && <p>La  creacion de {dataDoggy.name} se hizo de manera exitosa...</p>}
                 </div>
             </div>
+            {showModal &&
+                <ModalConfirmation handleModalOpen={handleModalOpen} handleConfirmation={handleConfirmation} handleModalClose={handleModalClose} />
+            }
         </>
     )
 }

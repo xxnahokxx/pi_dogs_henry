@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 function Card(props) {
     const temperamentos = useSelector(state => state.temperaments)
+    const modoOscuro = useSelector(state => state.darkMode)
 
     const tempName = () => {
 
@@ -18,10 +19,8 @@ function Card(props) {
 
     const nombres = tempName();
 
-    console.log(nombres);
-
     return (
-        <div className={style.card}>
+        <div className={modoOscuro ? style.cardDark : style.cardLight}>
             <h2>{props.name}</h2>
             { }
             <img className={style.image} src={props.image} alt="" onError={(event) => { event.target.onerror = null; event.target.src = doggyNotFound}}/>

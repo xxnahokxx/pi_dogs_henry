@@ -2,31 +2,57 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(31, 199, 183);
   border-radius: 15px;
-}
-
-.paginadoContainer li {
-  /* background: rgb(31, 199, 183); */
-  padding: 10px;
-  list-style: none;
-  border: solid 2px #ffffff;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.activo {
-  margin: 3px;
-  background: rgb(36, 181, 224);
-  font-size: 1.5rem;
-}
-
-.activo a {
-  color: #212121;
 }
 
 .container {
   width: 1200px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.page {
+  width: 30px;
+  margin: 40px 0;
+  text-align: center;
+  border: 1px solid grey;
+  background: inherit;
+  color: inherit;
+}
+
+.position {
+  margin: 5px;
+  padding: 5px;
+}
+
+.buttonDark {
+  background: rgb(51, 88, 85);
+  color: white;
+  padding: 7px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all .3s;
+}
+
+.buttonDark:hover {
+  background: rgb(64, 154, 146);
+  color: white;
+}
+
+.buttonLight {
+  background: rgb(31, 154, 199);
+  color: white;
+  padding: 7px 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: all .3s;
+}
+
+.buttonLight:hover {
+  background: rgb(31, 79, 199);
+  color: white;
 }

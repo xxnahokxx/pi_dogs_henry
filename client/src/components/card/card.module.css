@@ -1,14 +1,36 @@
-.card {
+.cardDark {
+    background: linear-gradient(to bottom, #335855, #058a7f);
+    color: white;
+}
+
+.cardLight {
+    background: linear-gradient(to bottom, #1f4cc7, #1f9ac7);
+    color: white;
+}
+
+.cardDark:hover {
+    margin: -10px -10px;
+    box-shadow: 0 0 10px rgb(255, 255, 255) ;
+    z-index: 700;
+}
+
+.cardLight:hover {
+    margin: -10px -10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0) ;
+    z-index: 700;
+}
+
+
+.cardLight, .cardDark {
     width: 280px;
     box-sizing: border-box;
-    background: #1FC7B7;
     border-radius: 25px;
     text-align: center;
-    color: white;
     margin: 10px;
     animation: selection 1s linear normal;
     position: relative;
     border: 1px solid transparent;
+    transition: all .3s;
 }
 
 @keyframes selection {

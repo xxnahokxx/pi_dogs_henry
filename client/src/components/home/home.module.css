@@ -1,6 +1,6 @@
 .content {
   padding-top: 5%;
-  background: #24B5E0;
+  background: linear-gradient(to right, rgb(0, 102, 255), rgb(255, 230, 0));
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import style from "./card.module.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux"
 import doggyNotFound from "../../utils/images/silueta_dog.png"
 
 function Card(props) {
 
+    const modoOscuro = useSelector(state => state.darkMode)
     const link = "https://cdn2.thedogapi.com/images/";
     const [errorImage, setErrorImage] = useState(false);
     const [errorImage2, setErrorImage2] = useState(false);
@@ -17,9 +19,7 @@ function Card(props) {
         setErrorImage2(true);
     }
 
-    console.log(errorImage);
-    console.log(errorImage2);
-    console.log(props.image);
+
 
     const imagen = () => {
 
@@ -39,7 +39,7 @@ function Card(props) {
 
 
     return (
-        <div className={style.card}>
+        <div className={modoOscuro ? style.cardDark : style.cardLight}>
             <h2>{props.name}</h2>
             <Link to={`/dogs/${props.id}`}>
                 {imagen()}

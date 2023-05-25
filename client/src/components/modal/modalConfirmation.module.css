@@ -1,0 +1,61 @@
+
+.container {
+    position: absolute;
+    top: calc( 50% - 100px);
+    left: calc(50% - 200px);
+    background: rgb(25, 119, 148);
+    opacity: .9;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 3px solid transparent;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 200px;
+    z-index: 1000;
+    box-shadow: 0 10px 100px rgb(255, 255, 255, .5) ;
+
+    & p {
+        padding: 0 30px;
+        margin: 0;
+    }
+    .buttonOk, .buttonCancel {
+        margin: 0 10px;
+        border-radius: 10px;
+        padding: 7px 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+        transition: all .3s;
+    }
+
+    .buttonOk {
+        border: 1px solid #fff;
+        background: rgb(0, 255, 89);
+
+    }
+
+    .buttonOk:hover {
+        background: #ffffff;
+        color: rgb(0, 255, 89);
+        border: 1px solid rgb(0, 255, 89);
+    }
+
+    .buttonCancel {
+        border: 1px solid #fff;
+        background: rgb(255, 153, 0);
+    }
+
+    .buttonCancel:hover {
+        background: #ffffff;
+        color: rgb(255, 153, 0);
+        border: 1px solid rgb(255, 153, 0);
+    }
+}
+

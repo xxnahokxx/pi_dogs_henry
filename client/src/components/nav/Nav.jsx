@@ -50,7 +50,7 @@ export default function Nav(props) {
                                         Created by potrace 1.15, written by Peter Selinger 2001-2017
                                     </metadata>
                                     <g transform="translate(0.000000,1232.000000) scale(0.100000,-0.100000)"
-                                        fill="#ffffff" stroke="none">
+                                        fill="#6d2727" stroke="none">
                                         <path d="M8443 12301 c-725 -171 -1292 -772 -1566 -1661 -128 -415 -184 -930
     -142 -1305 82 -741 432 -1322 951 -1583 294 -148 585 -173 859 -76 192 68 451
     220 620 364 449 381 769 968 889 1630 41 227 51 342 50 595 0 484 -68 837
