@@ -6,6 +6,8 @@
   flex-direction: column;
   position: relative;
   height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .button {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "./card.module.css";
 import doggyNotFound from "../../utils/images/silueta_dog.png"
 import { useSelector } from "react-redux";

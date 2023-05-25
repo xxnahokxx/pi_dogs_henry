@@ -30,15 +30,15 @@ const FormCreate = () => {
     })
 
     const [errorDataDoggy, setErrorDataDoggy] = useState({
-        name: "",
-        image: "",
-        heightMin: "",
-        heightMax: "",
-        weightMin: "",
-        weightMax: "",
-        lifeMin: "",
-        lifeMax: "",
-        temperament: "",
+        name: " ",
+        image: " ",
+        heightMin: " ",
+        heightMax: " ",
+        weightMin: " ",
+        weightMax: " ",
+        lifeMin: " ",
+        lifeMax: " ",
+        temperament: " ",
     })
 
 
