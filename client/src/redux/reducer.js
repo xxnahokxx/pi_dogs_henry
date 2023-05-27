@@ -152,14 +152,6 @@ export default reducer;
 
 
 
-
-
-
-
-
-
-
-
 // import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE } from "./types";
 
 // const initialState = {

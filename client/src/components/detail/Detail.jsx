@@ -13,7 +13,6 @@ const Detail = () => {
     const dispatch = useDispatch();
     const detallado = useSelector(state => state.detail);
     const modoOscuro = useSelector(state => state.darkMode);
-    console.log(modoOscuro);
 
     const { id } = useParams();
 

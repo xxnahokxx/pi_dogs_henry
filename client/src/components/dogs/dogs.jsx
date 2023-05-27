@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./dogs.module.css";
 import { connect, useSelector } from "react-redux";
 import { allDogs } from "../../redux/actions";

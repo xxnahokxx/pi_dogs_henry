@@ -1,8 +1,8 @@
 .contentDark {
-  background: #196d64;
+  background: linear-gradient(to right, #335855, #058a7f);
 }
 .contentLight {
-  background: rgb(31, 154, 199);
+  background: linear-gradient(to right, #1f4cc7, #1f9ac7);
 }
 
 .contentDark, .contentLight {
@@ -14,7 +14,18 @@
   position: relative;
   border-radius: 25px;
   padding: 40px;
+  animation: detalle 3s normal ;
+}
 
+@keyframes detalle {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .image {

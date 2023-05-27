@@ -9,6 +9,7 @@ import ModalConfirmation from "../modal/ModalConfirmation";
 
 const FormCreate = () => {
 
+    const modoOscuro = useSelector(state => state.darkMode);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -99,10 +100,10 @@ const FormCreate = () => {
             <div className={style.content}>
 
                 <div >
-                    <div>
+                    <div className={style.contentTitle}>
                         <h1 className={style.titulo} style={{ textAlign: "center" }}>Describenos el perrito que deseas agregar</h1>
                     </div>
-                    <form className={style.formulario} ref={formRef} action="post" onSubmit={handleSubmit}>
+                    <form className={modoOscuro ? style.formularioDark : style.formularioLight} ref={formRef} action="post" onSubmit={handleSubmit}>
                         <div className={style.seccion}>
                             <label className={style.descripcion} htmlFor="">Name:
                             </label>
@@ -164,9 +165,9 @@ const FormCreate = () => {
                     </form>
 
                 </div>
-                <div>
+                <div className={style.prevContent}>
                     <Card name={dataDoggy.name} image={dataDoggy.image} weight={`${dataDoggy.weightMin} - ${dataDoggy.weightMax}`} temperament={dataDoggy.temperament}></Card>
-                    {success && <p>La  creacion de {dataDoggy.name} se hizo de manera exitosa...</p>}
+                    {success && <p className={modoOscuro ? style.successDark : style.successLight}>La  creacion de {dataDoggy.name} se hizo de manera exitosa...</p>}
                 </div>
             </div>
             {showModal &&
