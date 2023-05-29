@@ -8,14 +8,11 @@ const { getNameDogsHandler, getApiHandller } = require("../handlers/index");
 
 const getNameDogs = async (req, res) => {
     const { search } = req.query;
-    console.log(search);
     try {
         if (!search) return res.status(401).json({ message: "Faltan datos" });
 
         const data1 = await getApiHandller(search);
-        console.log(data1);
         const data2 = await getNameDogsHandler(search);
-        console.log(data2);
 
         const response = [];
 

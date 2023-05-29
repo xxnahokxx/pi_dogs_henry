@@ -16,7 +16,6 @@ const getApiHandller = async (search) => {
                 life_span: el.life_span,
             }
     });
-    console.log(info);
     const infoSin = info.filter(el => {
         if (el.image !== undefined) {
            return el
