@@ -48,23 +48,24 @@ const Detail = () => {
                     <path d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z" />
                 </svg></button>
                 <div className={style.nameImage}>
-                    <h2>{detallado.name}</h2>
                     {
                         imagen()
                     }
                 </div>
-                <div className={style.specifications}>
-
-                    <h2 className={style.subtitle}>Temperament:</h2>
-
-                    <p className={style.text} >{detallado.temperament}</p>
-
-                    <h2 className={style.subtitle}>Weight:</h2>
-                    <p className={style.text} >{detallado.weight} Kg</p>
-                    <h2 className={style.subtitle}>Height:</h2>
-                    <p className={style.text} >{detallado.height} cm</p>
-                    <h2 className={style.subtitle}>Life Span:</h2>
-                    <p className={style.text} >{detallado.life_span} </p>
+                <div className={style.detalle}>
+                    <div className={style.name}>
+                        <h2 >{detallado.name}</h2>
+                    </div>
+                    <div className={style.specifications}>
+                        <h2 className={style.subtitle}>Temperament:</h2>
+                        <p className={style.text} >{detallado.temperament}</p>
+                        <h2 className={style.subtitle}>Weight:</h2>
+                        <p className={style.text} >{detallado.weight} Kg</p>
+                        <h2 className={style.subtitle}>Height:</h2>
+                        <p className={style.text} >{detallado.height} cm</p>
+                        <h2 className={style.subtitle}>Life Span:</h2>
+                        <p className={style.text} >{detallado.life_span} </p>
+                    </div>
                 </div>
                 <span className={style.id}>#{detallado.id}</span>
             </div>

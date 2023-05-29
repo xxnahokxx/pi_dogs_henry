@@ -49,17 +49,25 @@ input {
   flex-direction: column;
   align-items: center;
   border-radius: 40px 0;
+  .button {
+    background: linear-gradient(to bottom, #335855, #058a7f);
+    color: white;
+  }
 }
 
 .formularioLight {
   width: 400px;
-  background: linear-gradient(to bottom, #1f4cc7, #1f9ac7);;
+  background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116));
   color: white;
   padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 40px 0;
+  .button {
+    background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116));
+    color: white;
+  }
 }
 
 .seccion {
@@ -80,10 +88,8 @@ input {
 
 .button {
   margin: auto;
-  background: rgb(36, 181, 224);
   border: 2px solid white;
   padding: 7px 15px;
-  color: white;
   font-size: 1.5rem;
   border-radius: 10px;
   transition: all 0.5s;

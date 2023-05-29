@@ -3,7 +3,9 @@ import style from "./dogs.module.css";
 import { connect, useSelector } from "react-redux";
 import { allDogs } from "../../redux/actions";
 import Pagination from "../paginado/paginado";
-import siberiano from "../../utils/images/HUSKY-SIBERIANO-LAGO.webp"
+import img1 from "../../utils/images/HUSKY-SIBERIANO-LAGO.webp"
+import img2 from "../../utils/images/img2.jpg"
+import img3 from "../../utils/images/img3.jpg"
 
 
 function Dogs({ search, allDogs }) {
@@ -33,10 +35,19 @@ function Dogs({ search, allDogs }) {
     return (
         <>
             <div className={style.content}>
-                <div className={style.contentImageBar} onClick={handleClick} >
-                    <img className={style.imageBar} src={siberiano} alt="siberiano_en_lago" />
+                <div className={active ? style.expandido : style.minimizado} onClick={handleClick}>
+                    <div className={style.contentImageBar}  >
+                        <ul className={style.carruselInner}>
+                            <li><img className={style.imageBar} src={img1} alt="img1" /></li>
+                            <li><img className={style.imageBar} src={img2} alt="img2" /></li>
+                            <li><img className={style.imageBar} src={img3} alt="img3" /></li>
+                            <li><img className={style.imageBar} src="https://i0.wp.com/blog.mascotaysalud.com/wp-content/uploads/2019/09/LABRADOR-RETRIEVER-TUMBADO.jpg?w=865&ssl=1" alt="img3" /></li>
+                        </ul>
+                    </div>
+
                     <div className={style.cover} ></div>
-                    <div className={active ? style.expandido : style.minimizado}>
+
+                    <div className={style.messageRedes}>
                         <div>
                             <h1 className={style.title}>Proyecto bootcamp Henry</h1>
                             <p className={style.message}>Proyecto individual para el Bootcamp de Henry. </p>
@@ -48,7 +59,7 @@ function Dogs({ search, allDogs }) {
                                 </svg>
                             </a>
                             <a href="https://github.com/xxnahokxx" target="__blank">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className={style.github } viewBox="0 0 16 16">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className={style.github} viewBox="0 0 16 16">
                                     <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                                 </svg>
                             </a>

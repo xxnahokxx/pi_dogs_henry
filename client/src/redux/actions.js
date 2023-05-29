@@ -1,6 +1,6 @@
 import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE } from "./types";
 import axios from "axios";
-const endpoint = "http://localhost:3001";
+const endpoint = "https://serverpidogs-production.up.railway.app";
 
 
 export function allDogs() {
@@ -96,6 +96,7 @@ export const peso = (option) => {
 }
 
 export const alfabeto = (option) => {
+    console.log(option);
     return {
         type: ALFABETO,
         payload: option,

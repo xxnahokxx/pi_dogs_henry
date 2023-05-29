@@ -1,8 +1,9 @@
-.blackMode {
+.blackMode,
+.lightMode {
   display: flex;
 
-  .button,.input {
-    background: rgb(10, 89, 116);
+  .button,
+  .input {
     border: 1px solid white;
     border-radius: 10px;
     color: white;
@@ -11,7 +12,7 @@
   }
 
   .input {
-    max-width: 130px;
+    min-width: 120px;
   }
 
   .input:active {
@@ -23,7 +24,22 @@
   }
 
   .button:hover {
-    background: rgb(36, 181, 224);
+    border: 1px solid white;
+    border-radius: 10px;
+    color: white;
+  }
+}
+
+.blackMode {
+  .button,
+  .input {
+    background: linear-gradient(to bottom, #335855, #058a7f);
+    &:hover {
+      background: rgb(7, 136, 126);
+    }
+  }
+
+  .button:hover {
     border: 1px solid white;
     border-radius: 10px;
     color: white;
@@ -31,34 +47,22 @@
 }
 
 .lightMode {
-  display: flex;
-
   .button,
   .input {
-    background: rgb(36, 181, 224);
-    border: 1px solid white;
-    border-radius: 10px;
-    color: white;
-    padding: 5px 10px;
-    transition: all 0.5s;
-  }
+    background: linear-gradient(
+      to bottom,
+      rgb(155, 118, 80),
+      rgb(182, 149, 116)
+    );
 
-  .input {
-    max-width: 130px;
-  }
-
-  .input:active {
-    border: red;
-  }
-
-  .input::placeholder {
-    color: white;
+    &:hover {
+      border: 1px solid rgb(182, 149, 116);
+      color: rgb(182, 149, 116);
+    }
   }
 
   .button:hover {
     background: white;
-    border: 1px solid rgb(36, 181, 224);
     border-radius: 10px;
-    color: rgb(36, 181, 224);
   }
 }

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'mononoki-BoldItalic';
+  src: url('../../utils/fonts/mononoki-BoldItalic.ttf') format('truetype');
+}
+
 .darkMode,
 .lightMode {
   width: 250px;
@@ -24,7 +29,7 @@
 
   .select:focus,
   .select:hover {
-    border-color: #ffffff;
+    /* border-color: #ffffff; */
     border: 3px solid #eeeeee;
   }
 
@@ -61,6 +66,7 @@
   cursor: pointer;
   margin: 0;
   padding: 0 40px 0 0;
+  font-family: "mononoki-BoldItalic";
 }
 
 .logo {
@@ -103,25 +109,57 @@ a {
 }
 
 .darkMode {
-  background-color: #197794;
+  background: linear-gradient(to bottom, #335855, #058a7f);
   .select {
-    background: #197794;
+    background: linear-gradient(to bottom, #335855, #058a7f);
   }
   .modeButton {
     background: transparent;
+    cursor: pointer;
+  }
+
+  .select:focus,
+  .select:hover {
+    /* border-color: #ffffff; */
+    border: 3px solid #197794;
+    color:#fff;
+    background: #335855;
+  }
+
+  .button {
+    background: linear-gradient(to bottom, #335855, #058a7f);
+    &:hover{
+      background: #335855;
+    }
   }
 }
 
 .lightMode {
-  background-color: #24b5e0;
+  background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116)) ;
   .select {
-    background: rgb(36, 181, 224);
+    background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116));
   }
   .modeButton {
     background: transparent;
+    cursor: pointer;
+  }
+  .select:focus,
+  .select:hover {
+    /* border-color: #ffffff; */
+    border: 3px solid #ffffff;
+    color:#ffffff;
+    background: rgb(182, 149, 116);
+  }
+
+  .button {
+    background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116));
+    transition: all .5s;
+    &:hover{
+      background: rgb(189, 160, 131);
+    }
   }
 }
-
+/*  */
 .open {
   animation: typeOpen 2s normal;
   height: 100vh;
@@ -141,16 +179,27 @@ a {
   }
   100% {
     height: 100vh;
-    background: rgba(0, 0, 0, 0.473);
+    background: rgba(0, 0, 0, 0.7);
   }
 }
 @keyframes typeClose {
   0% {
     height: 100vh;
-    background: rgba(0, 0, 0, 0.473);
+    background: rgba(0, 0, 0, 0.7);
   }
   100% {
     height: 40px;
     background: transparent;
   }
+}
+
+
+.button {
+  padding: 7px 0;
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+  cursor: pointer;
+
 }

@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'mononoki-bold';
+  src: url('./utils/fonts/mononoki-Bold.otf') format('truetype');
+}
+
+* {
+  font-family: "mononoki-bold";
+}
+
 .app {
   background-color: rgb(255, 255, 255);
   box-sizing: border-box;
@@ -5,16 +14,18 @@
   min-height: 100vh;
   border: 1px solid transparent;
   display: flex;
+  position: relative;
 }
 
 .darkmode {
-    background: #212121;
-    color: #ffffff;
-    transition: all .5s;
+  background: #212121;
+  color: #ffffff;
+  transition: all 0.5s;
 }
 
 .lightmode {
-    background: #cccccc;
-    color: #212121;
-    transition: all .5s;
+  background: #cccccc;
+  color: #212121;
+  transition: all 0.5s;
 }
+
