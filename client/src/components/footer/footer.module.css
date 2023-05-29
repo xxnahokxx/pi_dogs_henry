@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 97%;
+  left: calc(50%);
+  transform: translate(calc(-50% + 125px));
+  width: 1200px;
+  border: 1px solid transparent;
+  margin: 0;
+}
+
+.footer div {
+  margin: 0 30px;
+}

@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'mononoki-bold';
+  src: url('../../utils/fonts/mononoki-Bold.otf') format('truetype');
+}
+
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .message {
+    margin: 0 0 0 50px;
+    font-size: 60px;
+    max-width: 600px;
+    text-align: center;
+    font-family: "mononoki-bold";
+  }
+
+  & img {
+    min-width: 300px;
+    max-width: 600px;
+  }
+}
