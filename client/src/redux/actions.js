@@ -37,7 +37,6 @@ export const getNameDogs = (name) => {
     return function (dispatch) {
         return axios.get(`${endpoint}/dogs/name?search=${name}`)
             .then(({ data }) => {
-                console.log(data);
                 dispatch({
                     type: SEARCH,
                     payload: data,
@@ -53,7 +52,6 @@ export const getRazaId = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(`${endpoint}/dogs/${id}`);
-            console.log(data);
             return dispatch({
                 type: DATA_ID,
                 payload: data,

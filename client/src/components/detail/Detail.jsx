@@ -44,8 +44,6 @@ const Detail = () => {
         }
     }
 
-    console.log(error);
-
     return (
 
         <>

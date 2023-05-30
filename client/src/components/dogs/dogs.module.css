@@ -37,7 +37,7 @@
 
     & img {
       width: 100%;
-      
+
     }
   }
 }
@@ -159,6 +159,20 @@
   }
   .content {
     max-width: 900px;
+  }
+  .expandido {
+    height: 350px;
+    .messageRedes {
+      & h1 {
+        font-size: 28px;
+      }
+      & p {
+        font-size: 20px;
+      }
+    }
+    .redes {
+      margin: 10px;
+    }
   }
 }
 @media (max-width: 1000px) {

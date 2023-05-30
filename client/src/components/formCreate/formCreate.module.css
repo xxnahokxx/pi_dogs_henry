@@ -1,6 +1,5 @@
 .content {
   display: flex;
-  /* flex-direction: column; */
   max-width: 1000px;
   margin: 0 auto;
   align-items: center;
@@ -142,4 +141,44 @@ input {
 @keyframes escribir { /* Nombre para usar en la animacion junto la propiedad animation */
   from { width: 0 } /* Comienza con ancho 0 */
   to { width: calc(53ch + 1px) } /* Termino cuando llegado al maximo del texto contando con ancho suficiente para mostrar el banner */
+}
+
+
+@media(max-width: 900px) {
+
+  .formularioDark, .formularioLight {
+    box-sizing: border-box;
+  }
+
+
+  .content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: 0 auto;
+  align-items: flex-start;
+
+  .contentTitle {
+    margin: 80px 0 0 0;
+    max-width: 450px;
+  }
+
+  .prevContent {
+    display: flex;
+    width: 407px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .successDark, .successLight {
+  font-size: 15px;
+  overflow: hidden; /* Selecciona todo lo que se encuentre fuera del div */
+  border-right: .15em solid orange; /* Banner que aumentara al final de la animacion */
+  /* white-space: nowrap; Hace que el texto no salte de linea */
+  margin: 50px auto 0; /* Centra horizontalmente el cajon del texto */
+  letter-spacing: .15em; /* Espacio entre caracteres */
+  animation: escribir 3s steps(40, end);
+}
+
+}
 }
