@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pi_dogs_henry/static/css/main.3f466ac3.css",
-    "main.js": "/pi_dogs_henry/static/js/main.d5e52c72.js",
+    "main.css": "/pi_dogs_henry/static/css/main.58d52c03.css",
+    "main.js": "/pi_dogs_henry/static/js/main.cd806ce9.js",
     "static/js/787.c4e7f8f9.chunk.js": "/pi_dogs_henry/static/js/787.c4e7f8f9.chunk.js",
     "static/media/fondo.png": "/pi_dogs_henry/static/media/fondo.0d81adadf6097202ac9e.png",
     "static/media/error.png": "/pi_dogs_henry/static/media/error.3155aa30b294ff6bd40f.png",
@@ -13,12 +13,12 @@
     "static/media/notificacion2.png": "/pi_dogs_henry/static/media/notificacion2.bdf788f03797f3f89ed9.png",
     "static/media/silueta_dog.png": "/pi_dogs_henry/static/media/silueta_dog.e715e1d811cd00be38de.png",
     "index.html": "/pi_dogs_henry/index.html",
-    "main.3f466ac3.css.map": "/pi_dogs_henry/static/css/main.3f466ac3.css.map",
-    "main.d5e52c72.js.map": "/pi_dogs_henry/static/js/main.d5e52c72.js.map",
+    "main.58d52c03.css.map": "/pi_dogs_henry/static/css/main.58d52c03.css.map",
+    "main.cd806ce9.js.map": "/pi_dogs_henry/static/js/main.cd806ce9.js.map",
     "787.c4e7f8f9.chunk.js.map": "/pi_dogs_henry/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3f466ac3.css",
-    "static/js/main.d5e52c72.js"
+    "static/css/main.58d52c03.css",
+    "static/js/main.cd806ce9.js"
   ]
 }
