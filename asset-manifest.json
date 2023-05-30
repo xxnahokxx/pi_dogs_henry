@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/server_pi_dogs/static/css/main.dc3a7916.css",
-    "main.js": "/server_pi_dogs/static/js/main.ec8feee2.js",
-    "static/js/787.c4e7f8f9.chunk.js": "/server_pi_dogs/static/js/787.c4e7f8f9.chunk.js",
-    "static/media/fondo.png": "/server_pi_dogs/static/media/fondo.0d81adadf6097202ac9e.png",
-    "static/media/error.png": "/server_pi_dogs/static/media/error.3155aa30b294ff6bd40f.png",
-    "static/media/mononoki-BoldItalic.ttf": "/server_pi_dogs/static/media/mononoki-BoldItalic.24a40b76363558eae063.ttf",
-    "static/media/mononoki-Bold.otf": "/server_pi_dogs/static/media/mononoki-Bold.77ce81e6c5e744bbffd3.otf",
-    "static/media/img3.jpg": "/server_pi_dogs/static/media/img3.1d8f5b9b6973c9b4812d.jpg",
-    "static/media/HUSKY-SIBERIANO-LAGO.webp": "/server_pi_dogs/static/media/HUSKY-SIBERIANO-LAGO.b91f1972cee14c52f4f1.webp",
-    "static/media/img2.jpg": "/server_pi_dogs/static/media/img2.9e0e6c1d2b947ec3f6a0.jpg",
-    "static/media/notificacion2.png": "/server_pi_dogs/static/media/notificacion2.bdf788f03797f3f89ed9.png",
-    "static/media/silueta_dog.png": "/server_pi_dogs/static/media/silueta_dog.e715e1d811cd00be38de.png",
-    "index.html": "/server_pi_dogs/index.html",
-    "main.dc3a7916.css.map": "/server_pi_dogs/static/css/main.dc3a7916.css.map",
-    "main.ec8feee2.js.map": "/server_pi_dogs/static/js/main.ec8feee2.js.map",
-    "787.c4e7f8f9.chunk.js.map": "/server_pi_dogs/static/js/787.c4e7f8f9.chunk.js.map"
+    "main.css": "/pi_dogs_henry/static/css/main.3f466ac3.css",
+    "main.js": "/pi_dogs_henry/static/js/main.d5e52c72.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/pi_dogs_henry/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/fondo.png": "/pi_dogs_henry/static/media/fondo.0d81adadf6097202ac9e.png",
+    "static/media/error.png": "/pi_dogs_henry/static/media/error.3155aa30b294ff6bd40f.png",
+    "static/media/mononoki-BoldItalic.ttf": "/pi_dogs_henry/static/media/mononoki-BoldItalic.24a40b76363558eae063.ttf",
+    "static/media/mononoki-Bold.otf": "/pi_dogs_henry/static/media/mononoki-Bold.77ce81e6c5e744bbffd3.otf",
+    "static/media/img3.jpg": "/pi_dogs_henry/static/media/img3.1d8f5b9b6973c9b4812d.jpg",
+    "static/media/HUSKY-SIBERIANO-LAGO.webp": "/pi_dogs_henry/static/media/HUSKY-SIBERIANO-LAGO.b91f1972cee14c52f4f1.webp",
+    "static/media/img2.jpg": "/pi_dogs_henry/static/media/img2.9e0e6c1d2b947ec3f6a0.jpg",
+    "static/media/notificacion2.png": "/pi_dogs_henry/static/media/notificacion2.bdf788f03797f3f89ed9.png",
+    "static/media/silueta_dog.png": "/pi_dogs_henry/static/media/silueta_dog.e715e1d811cd00be38de.png",
+    "index.html": "/pi_dogs_henry/index.html",
+    "main.3f466ac3.css.map": "/pi_dogs_henry/static/css/main.3f466ac3.css.map",
+    "main.d5e52c72.js.map": "/pi_dogs_henry/static/js/main.d5e52c72.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/pi_dogs_henry/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc3a7916.css",
-    "static/js/main.ec8feee2.js"
+    "static/css/main.3f466ac3.css",
+    "static/js/main.d5e52c72.js"
   ]
 }
