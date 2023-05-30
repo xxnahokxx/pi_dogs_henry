@@ -1,9 +1,15 @@
 .contentDark {
   background: linear-gradient(to right, #335855, #058a7f);
+  .contentImage {
+    background: rgb(164, 255, 177);
+  }
 }
 .contentLight {
-  background: linear-gradient(to right, #1f4cc7, #1f9ac7);
+  background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116));
   color: white;
+  .contentImage {
+    background: rgb(255, 186, 37);
+  }
 }
 
 .contentDark, .contentLight {
@@ -31,9 +37,9 @@
 }
 
 .image {
-  width: 600px;
-  max-height: 600px;
-  border-radius: 40px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50px;
   margin: 0 auto;
   object-fit: cover;
   object-position: top;
@@ -46,7 +52,11 @@
 }
 
 .subtitle {
+  font-size: 25px;
+  color: rgb(181, 179, 179);
   margin: 5px auto;
+  width: 100%;
+  align-self: flex-start;
 }
 
 .id {
@@ -58,10 +68,10 @@
 }
 
 .specifications {
+  width: 80%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  border-bottom: 1px solid;
   margin: 0 20px 50px;
 }
 
@@ -74,8 +84,9 @@
   padding: 5px;
 }
 
-.nameImage {
+.contentImage {
   border: 1px solid transparent;
+  border-radius: 70px;
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -85,18 +96,28 @@
 .detalle {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   height: 100%;
   align-items: center;
 }
 
+.temperamentos {
+  width: 80%;
+  margin: 0 0 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+}
+
+
 .name {
   display: flex;
-
-  margin: 50px 0 0 ;
-  max-width: 500px;
+  font-size: 30px;
+  justify-content: flex-start;
+  margin: 50px 0  ;
+  width: 80%;
   & h2 {
-    margin: 15px auto;
     display: inline-block;
   }
 }

@@ -47,7 +47,7 @@ const Pagination = (props) => {
 
     return (
         <>
-            <div>
+            <div className={style.principalContent}>
                 <div className={style.container}>
                     {
                         data.slice(firstIndex, lastIndex).map(({ id, image, name, temperament, weight, height, life_span }) => (<Card key={id} id={id} name={name} image={image} temperament={temperament} weight={weight} height={height} life_span={life_span} />))

@@ -1,4 +1,4 @@
-import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE } from "./types";
+import { ALL_DOGS, SEARCH, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE, ERROR } from "./types";
 
 const initialState = {
     search: [],
@@ -9,6 +9,7 @@ const initialState = {
     temperaments: [],
     addDoggy: [],
     darkMode: false,
+    error: false,
 };
 
 const sortByWeight = (dogs, sortOrder) => {
@@ -55,13 +56,20 @@ const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
 
         case SEARCH:
-            return { ...state, search: payload };
+            if (payload.length > 0) {
+                return { ...state, search: payload, error: false};
+            } else {
+                return { ...state, search: payload };
+            }
+
+        case ERROR:
+                return { ...state, error: payload };
 
         case ALL_DOGS:
             return { ...state, allDogs: payload };
 
         case RESET:
-            return { ...state, search: payload, dogsFilter: payload };
+            return { ...state, search: payload, dogsFilter: payload, error: false };
 
         case DATA_ID:
             return { ...state, detail: payload };

@@ -17,6 +17,22 @@ export default function Nav(props) {
     const [open, setOpen] = useState(false);
     const [outHome, setOutHome] = useState(false);
 
+    const tempCondicional = () => {
+        if (busqueda.length > 0) {
+            let info = []
+            const data = busqueda.filter(el => el.temperament !== undefined);
+            const temp = data.map(el => el.temperament.split(", "));
+            temp.map(el => {
+                return el.map(elm => !info.includes(elm) && info.push(elm))
+            })
+            const res = temperamento.filter(el => info.includes(el.names));
+            return res;
+        }
+        return false
+    }
+
+    const busTemperamentos = tempCondicional();
+
     const itsOpen = () => {
         setOpen(!open);
     }
@@ -145,7 +161,7 @@ export default function Nav(props) {
                                             <select className={style.select} name="origen" key="origen" onChange={(event) => dispatch(tempFilter(event.target.value))}>
                                                 <option value="ALL">Selecciona Temperamento</option>
                                                 <option value="ALL">Todos</option>
-                                                {temperamento.map(el => <option key={el.id} value={el.names}>{el.names}</option>)}
+                                                {busTemperamentos ? busTemperamentos.map(el => <option key={el.id} value={el.names}>{el.names}</option>) : temperamento.map(el => <option key={el.id} value={el.names}>{el.names}</option>)}
                                             </select>
                                         </li>
                                     </>

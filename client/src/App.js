@@ -23,12 +23,13 @@ function App() {
         <Nav color={handleButtonClick}></Nav>
         <Routes>
           <Route path="/home" element={<Home></Home>}></Route>
+          <Route path="/" element={<Home></Home>}></Route>
           <Route path="/dogs" element={<Dogs ></Dogs>}></Route>
           <Route path="/dogs/:id" element={<Detail />} ></Route>
           <Route path="/dogs/create" element={<FormCreate />}></Route>
           <Route path='*' element={<Error></Error>}></Route>
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </div>
     </>
   );

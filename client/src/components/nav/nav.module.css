@@ -6,7 +6,8 @@
 .darkMode,
 .lightMode {
   width: 250px;
-  position: sticky;
+  height: 100%;
+  position: absolute;
   top: 0px;
   z-index: 2000;
   transition: all 0.5s;
@@ -161,14 +162,14 @@ a {
 }
 /*  */
 .open {
-  animation: typeOpen 2s normal;
-  height: 100vh;
+  animation: typeOpen .75s normal;
+  height: 100%;
   border-radius: 0 50px 0 0;
 }
 
 .close {
   height: 40px;
-  animation: typeClose 2s normal;
+  animation: typeClose .75s normal;
   background: transparent;
 }
 

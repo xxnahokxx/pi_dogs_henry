@@ -1,6 +1,7 @@
 .blackMode,
 .lightMode {
   display: flex;
+  flex-direction: column;
 
   .button,
   .input {
@@ -28,6 +29,59 @@
     border-radius: 10px;
     color: white;
   }
+
+  .errorModal {
+    position: relative;
+    padding: 95px 0 0;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: aparecer 1s ease;
+
+    & img {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      z-index: 0;
+    }
+
+    & p {
+      z-index: 100;
+      color: black;
+    }
+
+    & button {
+      z-index: 100;
+    }
+  }
+
+  .contentInput {
+    display: flex;
+  }
+}
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;
+    margin-left: -20px;
+  }
+  25% {
+    margin-left: 20px;
+  }
+
+  50% {
+    margin-left: -20px;
+  }
+  75% {
+    margin-left: 20px;
+  }
+  100% {
+    margin-left: 0;
+    opacity: 1;
+  }
 }
 
 .blackMode {
@@ -54,6 +108,7 @@
       rgb(155, 118, 80),
       rgb(182, 149, 116)
     );
+    color: white;
 
     &:hover {
       border: 1px solid rgb(182, 149, 116);

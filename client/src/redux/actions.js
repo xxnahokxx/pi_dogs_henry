@@ -1,4 +1,4 @@
-import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE } from "./types";
+import { SEARCH, ALL_DOGS, RESET, DATA_ID, PESO, ALFABETO, ORIGEN, TEMPERAMENT, TEMP_FILTER, ADD_DOGGY, DARK_MODE, ERROR } from "./types";
 import axios from "axios";
 const endpoint = "https://serverpidogs-production.up.railway.app";
 
@@ -37,7 +37,7 @@ export const getNameDogs = (name) => {
     return function (dispatch) {
         return axios.get(`${endpoint}/dogs/name?search=${name}`)
             .then(({ data }) => {
-                // console.log(data);
+                console.log(data);
                 dispatch({
                     type: SEARCH,
                     payload: data,
@@ -45,7 +45,7 @@ export const getNameDogs = (name) => {
             })
             .catch((error) => {
                 console.log(error.message);
-            })
+            });
     }
 }
 
@@ -60,6 +60,11 @@ export const getRazaId = (id) => {
             })
         } catch (error) {
             console.log(error.message);
+            console.log(error);
+            dispatch({
+                type: ERROR,
+                payload: true,
+            })
         }
     }
 

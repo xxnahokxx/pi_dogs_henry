@@ -23,6 +23,7 @@
   transition: transform 0.5s ease;
 
   .carruselInner {
+    position: relative;
     display: flex;
     padding: 0;
     width: 400%;
@@ -35,23 +36,40 @@
     }
 
     & img {
-      max-width: 1200px;
+      width: 100%;
+      
     }
   }
 }
 
 @keyframes slide {
-	0% {margin-left: 0;}
-	20% {margin-left: 0;}
+  0% {
+    margin-left: 0;
+  }
+  20% {
+    margin-left: 0;
+  }
 
-	25% {margin-left: -100%;}
-	45% {margin-left: -100%;}
+  25% {
+    margin-left: -100%;
+  }
+  45% {
+    margin-left: -100%;
+  }
 
-	50% {margin-left: -200%;}
-	70% {margin-left: -200%;}
+  50% {
+    margin-left: -200%;
+  }
+  70% {
+    margin-left: -200%;
+  }
 
-	75% {margin-left: -300%;}
-	100% {margin-left: -300%;}
+  75% {
+    margin-left: -300%;
+  }
+  100% {
+    margin-left: -300%;
+  }
 }
 
 .imageBar {
@@ -100,6 +118,7 @@
     position: absolute;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
 
@@ -130,4 +149,90 @@
   background-color: rgba(0, 0, 0, 0.5); /* Color de fondo para el div */
   z-index: 1;
   border-radius: 0 0 0 50px;
+}
+
+/* media querys */
+
+@media (max-width: 1300px) {
+  .templateDogs {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .content {
+    max-width: 900px;
+  }
+}
+@media (max-width: 1000px) {
+  .templateDogs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .content {
+    max-width: 600px;
+  }
+
+  .expandido {
+    height: 250px;
+    .messageRedes {
+      & h1 {
+        font-size: 20px;
+      }
+      & p {
+        font-size: 15px;
+      }
+    }
+    .redes {
+      margin: 0;
+    }
+  }
+  .minimizado {
+    height: 100px;
+    .messageRedes {
+      & h1 {
+        font-size: 20px;
+      }
+      & p {
+        font-size: 15px;
+      }
+    }
+    .redes {
+      margin: 0;
+    }
+  }
+}
+
+/* movil */
+@media (max-width: 700px) {
+  .templateDogs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .content {
+    max-width: 300px;
+  }
+  .expandido {
+    height: 150px;
+    .messageRedes {
+      & h1 {
+        font-size: 20px;
+      }
+      & p {
+        font-size: 15px;
+      }
+    }
+    .redes {
+      margin: 0;
+    }
+  }
+  .minimizado {
+    height: 150px;
+    .messageRedes {
+      & h1 {
+        font-size: 20px;
+      }
+      & p {
+        font-size: 15px;
+      }
+    }
+    .redes {
+      margin: 0;
+    }
+  }
 }
