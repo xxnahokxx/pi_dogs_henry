@@ -64,7 +64,11 @@ input {
   align-items: center;
   border-radius: 40px 0;
   .button {
-    background: linear-gradient(to bottom, rgb(155, 118, 80), rgb(182, 149, 116));
+    background: linear-gradient(
+      to bottom,
+      rgb(155, 118, 80),
+      rgb(182, 149, 116)
+    );
     color: white;
   }
 }
@@ -127,58 +131,65 @@ input {
   color: #1b1b1b;
 }
 
-.successDark, .successLight {
+.successDark,
+.successLight {
   font-size: 24px;
   overflow: hidden; /* Selecciona todo lo que se encuentre fuera del div */
-  border-right: .15em solid orange; /* Banner que aumentara al final de la animacion */
+  border-right: 0.15em solid orange; /* Banner que aumentara al final de la animacion */
   white-space: nowrap; /* Hace que el texto no salte de linea */
   margin: 50px auto 0; /* Centra horizontalmente el cajon del texto */
-  letter-spacing: .15em; /* Espacio entre caracteres */
+  letter-spacing: 0.15em; /* Espacio entre caracteres */
   animation: escribir 3s steps(40, end);
-
 }
 
-@keyframes escribir { /* Nombre para usar en la animacion junto la propiedad animation */
-  from { width: 0 } /* Comienza con ancho 0 */
-  to { width: calc(53ch + 1px) } /* Termino cuando llegado al maximo del texto contando con ancho suficiente para mostrar el banner */
+@keyframes escribir {
+  /* Nombre para usar en la animacion junto la propiedad animation */
+  from {
+    width: 0;
+  } /* Comienza con ancho 0 */
+  to {
+    width: calc(53ch + 1px);
+  } /* Termino cuando llegado al maximo del texto contando con ancho suficiente para mostrar el banner */
 }
 
-
-@media(max-width: 900px) {
-
-  .formularioDark, .formularioLight {
+@media (max-width: 900px) {
+  .formularioDark,
+  .formularioLight {
     box-sizing: border-box;
+    width: 370px;
   }
-
 
   .content {
-  display: flex;
-  flex-direction: column;
-  max-width: 1000px;
-  margin: 0 auto;
-  align-items: flex-start;
-
-  .contentTitle {
-    margin: 80px 0 0 0;
-    max-width: 450px;
-  }
-
-  .prevContent {
     display: flex;
-    width: 407px;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto;
     align-items: flex-start;
+
+    .contentTitle {
+      margin: 50px 0;
+      max-width: 370px;
+      & h1 {
+        font-size: 25px;
+      }
+    }
+
+    .prevContent {
+      display: flex;
+      width: 370px;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .successDark,
+    .successLight {
+      font-size: 15px;
+      overflow: hidden; /* Selecciona todo lo que se encuentre fuera del div */
+      border-right: 0.15em solid orange; /* Banner que aumentara al final de la animacion */
+      /* white-space: nowrap; Hace que el texto no salte de linea */
+      margin: 50px auto 0; /* Centra horizontalmente el cajon del texto */
+      letter-spacing: 0.15em; /* Espacio entre caracteres */
+      animation: escribir 3s steps(40, end);
+    }
   }
-
-  .successDark, .successLight {
-  font-size: 15px;
-  overflow: hidden; /* Selecciona todo lo que se encuentre fuera del div */
-  border-right: .15em solid orange; /* Banner que aumentara al final de la animacion */
-  /* white-space: nowrap; Hace que el texto no salte de linea */
-  margin: 50px auto 0; /* Centra horizontalmente el cajon del texto */
-  letter-spacing: .15em; /* Espacio entre caracteres */
-  animation: escribir 3s steps(40, end);
-}
-
-}
 }

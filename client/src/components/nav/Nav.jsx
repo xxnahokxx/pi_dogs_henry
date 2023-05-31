@@ -40,7 +40,7 @@ export default function Nav(props) {
     const { pathname } = location;
 
     const checkHome = () => {
-        if (pathname === "/" || pathname === "/home") {
+        if (pathname === "/" || pathname === "/home" || pathname === "/pi_dogs_henry") {
             return false;
         }
         return true;
@@ -64,8 +64,14 @@ export default function Nav(props) {
     const pos = checkHome();
     const navigate = useNavigate();
     const landingPage = () => navigate("/home");
-    const create = () => navigate("/dogs/create"); // volver a home
-    const doggys = () => navigate("/dogs"); // volver a home
+    const create = () => {
+        navigate("/dogs/create")
+        itsOpen();
+    }; // volver a home
+    const doggys = () => {
+        navigate("/dogs");
+        itsOpen();
+    }; // volver a home
     if (pos) {
         return (
 
