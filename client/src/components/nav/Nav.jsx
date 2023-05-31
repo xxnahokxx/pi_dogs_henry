@@ -40,7 +40,7 @@ export default function Nav(props) {
     const { pathname } = location;
 
     const checkHome = () => {
-        if (pathname === "/" || pathname === "/home" || pathname === "/pi_dogs_henry") {
+        if (pathname === "/" || pathname === "/home" || pathname === "/pi_dogs_henry" || pathname === "/pi_dogs_henry/") {
             return false;
         }
         return true;
