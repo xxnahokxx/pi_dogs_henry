@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "env": {
+      "NODE_ENV": "production",
+      "PORT": 3000
+    },
+    "scripts": {
+      "start": "node your_backend_file.js"
+    },
+    "routes": [
+      {
+        "src": "/.*",
+        "dest": "your_backend_file.js"
+      }
+    ]
+  }
+  
