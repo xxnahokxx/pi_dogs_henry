@@ -22,6 +22,7 @@ function App() {
         <Nav color={handleButtonClick}></Nav>
         <Routes>
           <Route path="/pi_dogs_henry" element={<Home></Home>}></Route>
+          <Route path="/" element={<Home></Home>}></Route>
           <Route path="/home" element={<Home></Home>}></Route>
           <Route path="/dogs" element={<Dogs ></Dogs>}></Route>
           <Route path="/dogs/:id" element={<Detail />} ></Route>
