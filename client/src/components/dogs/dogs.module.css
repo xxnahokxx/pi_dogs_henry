@@ -37,7 +37,6 @@
 
     & img {
       width: 100%;
-
     }
   }
 }
@@ -223,7 +222,7 @@
   }
 
   .expandido {
-    height: 150px;
+    height: 250px;
     .messageRedes {
       & h1 {
         font-size: 20px;
@@ -243,9 +242,11 @@
     .messageRedes {
       & h1 {
         font-size: 20px;
+        margin: 0 0 0 20px;
       }
       & p {
         font-size: 15px;
+        margin: 0 0 0 20px;
       }
     }
     .redes {

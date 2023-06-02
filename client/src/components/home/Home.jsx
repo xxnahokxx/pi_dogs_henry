@@ -15,10 +15,10 @@ export default function Home() {
                 <div className={style.overlay}>
                     <img src={Doggy} alt="perrito" className={style.doggy} />
                     <div className={style.main}>
-                        <h1 className={style.title}>¡Bienvenido a nuestra página de perros!</h1>
+                        <h2 className={style.title}>¡Bienvenido a nuestra página de perros!</h2>
                         <button onClick={home} className={style.button}>Bienvenido</button>
                     </div>
-                    <h1><svg className={style.logo} version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    <h1 className={style.logo}><svg className={style.logo} version="1.0" xmlns="http://www.w3.org/2000/svg"
                         width="25" height="25" viewBox="0 0 1280.000000 1232.000000"
                         preserveAspectRatio="xMidYMid meet">
                         <metadata>

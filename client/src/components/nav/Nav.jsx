@@ -4,7 +4,7 @@ import style from "./nav.module.css";
 import Search from "../search/Search";
 import { useDispatch, useSelector } from "react-redux";
 import { alfabeto, origen, peso, tempFilter, temperamentos } from "../../redux/actions";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 // import logo from "../../utils/images/icon_doggy.svg"
 
 export default function Nav(props) {
@@ -15,6 +15,7 @@ export default function Nav(props) {
     const temperamento = useSelector(state => state.temperaments);
     const modoOscuro = useSelector(state => state.darkMode);
     const [open, setOpen] = useState(false);
+    const menuRef = useRef(null);
     const [outHome, setOutHome] = useState(false);
 
     const tempCondicional = () => {
@@ -30,6 +31,21 @@ export default function Nav(props) {
         }
         return false
     }
+
+    const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
 
     const busTemperamentos = tempCondicional();
 
@@ -76,7 +92,7 @@ export default function Nav(props) {
     if (pos) {
         return (
 
-            <div className={`${modoOscuro ? style.darkMode : style.lightMode} ${open ? style.open : style.close}`}>
+            <div ref={menuRef} className={`${modoOscuro ? style.darkMode : style.lightMode} ${open ? style.open : style.close}`}>
                 <div className={style.hamburguer} /* onClick={} */>
                     <svg onClick={itsOpen} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
