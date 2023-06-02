@@ -7,7 +7,6 @@ import Nav from './components/nav/Nav';
 import Dogs from "./components/dogs/dogs";
 import Detail from './components/detail/Detail';
 import FormCreate from './components/formCreate/FormCreate';
-import Footer from './components/footer/Footer';
 import Error from './components/error/Error';
 
 function App() {
@@ -29,7 +28,6 @@ function App() {
           <Route path="/dogs/create" element={<FormCreate />}></Route>
           <Route path='*' element={<Error></Error>}></Route>
         </Routes>
-        {/* <Footer/> */}
       </div>
     </>
   );
