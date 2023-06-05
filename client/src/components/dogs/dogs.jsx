@@ -12,8 +12,12 @@ function Dogs({ search, allDogs }) {
 
     const result = useSelector(state => state.filtros)
     const temFilter = useSelector(state => state.dogsFilter)
-
+    const escrito = useSelector(state => state.escrito);
     const condicionDato = () => {
+
+        if (escrito.length > 0) {
+            return search
+        }
         if (result.length > 0) {
             return temFilter.length === 0
                 ? result

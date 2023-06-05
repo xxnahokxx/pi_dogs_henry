@@ -1,33 +1,40 @@
-import { connect, useSelector } from "react-redux";
-import { allDogs, getNameDogs, reset } from "../../redux/actions";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { allDogs, escrito, getNameDogs, reset } from "../../redux/actions";
 import { useState } from "react";
 import style from "./search.module.css"
 import coment from "../../utils/images/notificacion2.png"
 
 function Search({ busqueda, reset, allDogs }) {
 
+    const dispatch = useDispatch();
     const [raza, setRaza] = useState("");
     const [onError, setOnError] = useState(false);
     const error = useSelector(state => state.search);
-    console.log(error);
+
     const handleInputChange = (event) => {
         const { value } = event.target;
         setRaza(value);
+        dispatch(escrito(value));
+    }
+
+    const perciste = () => {
+        if (error.length === 0) {
+            setOnError(true);
+        }
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setOnError(false);
         setRaza("");
-        if (error.length === 0) {
-            setOnError(true);
-        }
+
+        setTimeout(perciste, 300);
     };
 
     const handleAll = (raza) => {
         setRaza("");
         reset();
         allDogs();
-
     }
 
     const handleClick = () => {

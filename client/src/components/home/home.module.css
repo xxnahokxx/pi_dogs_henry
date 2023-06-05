@@ -150,9 +150,8 @@
     > .logo {
       position: absolute;
       bottom: -15%;
-      text-shadow: 10px 10px 5px  rgba(0, 0, 0, 0.473);
+      text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.473);
     }
-
   }
 
   .doggy {
