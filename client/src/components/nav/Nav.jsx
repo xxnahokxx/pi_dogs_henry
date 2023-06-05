@@ -76,7 +76,7 @@ export default function Nav(props) {
         dispatch(temperamentos())
         itsHome();
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [busqueda, dispatch, pathname])
+    }, [ dispatch, pathname])
 
     const pos = checkHome();
     const navigate = useNavigate();

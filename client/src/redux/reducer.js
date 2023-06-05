@@ -58,16 +58,16 @@ const reducer = (state = initialState, { type, payload }) => {
 
         case SEARCH:
             if (payload.length > 0) {
-                return { ...state, search: payload, error: false};
+                return { ...state, search: payload, error: false, dogsFilter: payload };
             } else {
                 return { ...state, search: payload };
             }
 
         case ERROR:
-                return { ...state, error: payload };
+            return { ...state, error: payload };
 
         case ALL_DOGS:
-            return { ...state, allDogs: payload };
+            return { ...state, allDogs: payload, dogsFilter: payload };
 
         case RESET:
             return { ...state, search: payload, dogsFilter: payload, error: false, escrito: "" };
@@ -76,7 +76,7 @@ const reducer = (state = initialState, { type, payload }) => {
             return { ...state, detail: payload };
 
         case WRITTEN:
-            return { ...state, escrito: payload}
+            return { ...state, escrito: payload }
 
         case ADD_DOGGY:
             return { ...state, addDoggy: payload }
@@ -88,60 +88,55 @@ const reducer = (state = initialState, { type, payload }) => {
 
             let orden = [];
 
-            if (state.dogsFilter.length > 0) {
-                orden = sortByWeight(state.dogsFilter, payload);
-                return { ...state, dogsFilter: orden };
+            if (state.search.length > 0) {
+                orden = sortByWeight(state.search, payload);
+                return { ...state, search: orden };
             }
 
-            if (state.dogsFilter.length === 0) {
-                orden = state.search.length === 0
-                    ? sortByWeight(state.allDogs, payload)
-                    : sortByWeight(state.search, payload);
-                return { ...state, filtros: orden };
+            if (state.search.length === 0) {
+                orden = sortByWeight(state.dogsFilter, payload);
+                return { ...state, dogsFilter  : orden };
             }
 
             break
 
         case ALFABETO:
             let alfa = []
-            if (state.dogsFilter.length > 0) {
-                alfa = sortByName(state.dogsFilter, payload);
+
+            if (state.search.length === 0) {
+                 alfa =sortByName(state.dogsFilter, payload)
                 return { ...state, dogsFilter: alfa };
             }
-
-            if (state.dogsFilter.length === 0) {
-                alfa = state.search.length === 0
-                    ? sortByName(state.allDogs, payload)
-                    : sortByName(state.search, payload);
-                return { ...state, filtros: alfa };
+            if (state.search.length > 0) {
+                alfa = sortByName(state.search, payload);
+                return { ...state, search: alfa };
             }
 
-            return
+        return
 
         case ORIGEN:
             let origen = [];
-            if (state.dogsFilter.length > 0) {
-                origen = filterByOrigin([...state.dogsFilter], payload);
-                return { ...state, dogsFilter: origen }
-            }
-
-            if (state.dogsFilter.length === 0) {
-                origen = state.search.length === 0
-                    ? filterByOrigin([...state.allDogs], payload)
-                    : filterByOrigin([...state.search], payload);
-                return { ...state, filtros: origen }
-            }
-
-            return
+            origen = state.search.length === 0
+                ? filterByOrigin([...state.allDogs], payload)
+                : filterByOrigin([...state.search], payload);
+            return { ...state, dogsFilter: origen }
 
         case TEMPERAMENT:
             return { ...state, temperaments: payload }
 
         case TEMP_FILTER:
-            const dato = state.search.length === 0
-                ? [...state.allDogs].filter(el => payload === "ALL" ? el : el.temperament && el.temperament.includes(payload))
-                : [...state.search].filter(el => payload === "ALL" ? el : el.temperament && el.temperament.includes(payload))
-            return { ...state, dogsFilter: dato }
+            let dato = [];
+
+            if (state.search.length === 0) {
+                dato = [...state.allDogs].filter(el => payload === "ALL" ? el : el.temperament && el.temperament.includes(payload))
+                return { ...state, dogsFilter: dato }
+            }
+            if (state.search.length > 0) {
+                dato = [...state.dogsFilter].filter(el => payload === "ALL" ? el : el.temperament && el.temperament.includes(payload))
+                return { ...state, search: dato }
+            }
+
+            return
 
         default:
             return { ...state };
