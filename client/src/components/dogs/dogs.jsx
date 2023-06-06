@@ -17,6 +17,7 @@ function Dogs({ search, dogsAll }) {
 
     useEffect(() => {
         dispatch(allDogs());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     const condicionDato = () => {
@@ -36,10 +37,6 @@ function Dogs({ search, dogsAll }) {
         }
     }
     const data = condicionDato();
-    console.log(data);
-    console.log(escrito);
-    console.log(temFilter);
-
     const [active, setActive] = useState(true);
 
     const handleClick = () => {
