@@ -156,7 +156,6 @@ export default function Nav(props) {
                         </div>
                         <div className={style.content}>
                             <div className={style.navOptions}>
-                            <button onClick={resetValues}>prueba</button>
                         {outHome && <Search resetValues={resetValues} />}
 
                                 <ul className={style.list}>
