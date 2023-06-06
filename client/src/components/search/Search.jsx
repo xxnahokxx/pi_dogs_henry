@@ -4,7 +4,7 @@ import { useState } from "react";
 import style from "./search.module.css"
 import coment from "../../utils/images/notificacion2.png"
 
-function Search({ busqueda, reset, allDogs }) {
+function Search({ busqueda, reset, allDogs, resetValues }) {
 
     const dispatch = useDispatch();
     const [raza, setRaza] = useState("");
@@ -35,6 +35,7 @@ function Search({ busqueda, reset, allDogs }) {
         setRaza("");
         reset();
         allDogs();
+        resetValues();
     }
 
     const handleClick = () => {

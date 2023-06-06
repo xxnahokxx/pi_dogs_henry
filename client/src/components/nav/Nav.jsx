@@ -71,6 +71,20 @@ export default function Nav(props) {
         }
     }
 
+    const resetValues = () => {
+        let select1 = document.getElementById("alfabetico");
+        let select2 = document.getElementById("peso");
+        let select3 = document.getElementById("origen");
+        let select4 = document.getElementById("temperamentos");
+
+        select1.selectedIndex = 0;
+        select2.selectedIndex = 0;
+        select3.selectedIndex = 0;
+        select4.selectedIndex = 0;
+
+    }
+
+
     useEffect(() => {
         dispatch(peso());
         dispatch(temperamentos())
@@ -95,7 +109,7 @@ export default function Nav(props) {
             <div ref={menuRef} className={`${modoOscuro ? style.darkMode : style.lightMode} ${open ? style.open : style.close}`}>
                         <div className={style.hamburguer} /* onClick={} */>
                             <svg onClick={itsOpen} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                             </svg>
                             <div>
                                 <a onClick={landingPage}>
@@ -142,8 +156,8 @@ export default function Nav(props) {
                         </div>
                         <div className={style.content}>
                             <div className={style.navOptions}>
-
-                                {outHome && <Search />}
+                            <button onClick={resetValues}>prueba</button>
+                        {outHome && <Search resetValues={resetValues} />}
 
                                 <ul className={style.list}>
                                     <li className={style.itemList}>
@@ -159,21 +173,21 @@ export default function Nav(props) {
                                         outHome ?
                                             <>
                                                 <li className={style.itemList}>
-                                                    <select className={style.select} name="alfabetico" key="alfabetico" onChange={(event) => dispatch(alfabeto(event.target.value))}>
+                                                    <select className={style.select} id="alfabetico"  key="alfabetico" onClick={(event) => dispatch(alfabeto(event.target.value))}>
                                                         <option value="Seleccionar">Orden Alfabetico</option>
                                                         <option value="A-Z">A-Z</option>
                                                         <option value="Z-A">Z-A</option>
                                                     </select>
                                                 </li>
                                                 <li className={style.itemList}>
-                                                    <select className={style.select} name="peso" key="peso" onChange={(event) => dispatch(peso(event.target.value))}>
+                                                    <select className={style.select} id="peso" key="peso" onChange={(event) => dispatch(peso(event.target.value))}>
                                                         <option value="Seleccionar">Ordenar por Peso</option>
                                                         <option value="Ascendente">Ascendente</option>
                                                         <option value="Descendente">Descendente</option>
                                                     </select>
                                                 </li>
                                                 <li className={style.itemList}>
-                                                    <select className={style.select} name="origen" key="origen" onChange={(event) => dispatch(origen(event.target.value))}>
+                                                    <select className={style.select} id="origen" key="origen" onChange={(event) => dispatch(origen(event.target.value))}>
                                                         <option value="ALL">Origen</option>
                                                         <option value="ALL">Todos</option>
                                                         <option value="API">API</option>
@@ -181,7 +195,7 @@ export default function Nav(props) {
                                                     </select>
                                                 </li>
                                                 <li className={style.itemList}>
-                                                    <select className={style.select} name="origen" key="origen" onChange={(event) => dispatch(tempFilter(event.target.value))}>
+                                                    <select className={style.select} id="temperamentos" key="origen" onChange={(event) => dispatch(tempFilter(event.target.value))}>
                                                         <option value="ALL">Selecciona Temperamento</option>
                                                         <option value="ALL">Todos</option>
                                                         {busTemperamentos ? busTemperamentos.map(el => <option key={el.id} value={el.names}>{el.names}</option>) : temperamento.map(el => <option key={el.id} value={el.names}>{el.names}</option>)}

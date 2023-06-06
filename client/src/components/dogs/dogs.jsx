@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./dogs.module.css";
-import { connect, useSelector } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { allDogs } from "../../redux/actions";
 import Pagination from "../paginado/paginado";
 import img1 from "../../utils/images/HUSKY-SIBERIANO-LAGO.webp"
@@ -8,11 +8,17 @@ import img2 from "../../utils/images/img2.jpg"
 import img3 from "../../utils/images/img3.jpg"
 
 
-function Dogs({ search, allDogs }) {
+function Dogs({ search, dogsAll }) {
 
+    const dispatch = useDispatch();
     const result = useSelector(state => state.filtros)
     const temFilter = useSelector(state => state.dogsFilter)
     const escrito = useSelector(state => state.escrito);
+
+    useEffect(() => {
+        dispatch(allDogs());
+    },[])
+
     const condicionDato = () => {
 
         if (escrito.length > 0) {
@@ -25,11 +31,14 @@ function Dogs({ search, allDogs }) {
         }
         if (result.length === 0) {
             return temFilter.length === 0
-                ? allDogs
+                ? dogsAll
                 : temFilter
         }
     }
     const data = condicionDato();
+    console.log(data);
+    console.log(escrito);
+    console.log(temFilter);
 
     const [active, setActive] = useState(true);
 
@@ -83,13 +92,13 @@ function Dogs({ search, allDogs }) {
 const mapStateToProps = (state) => {
     return {
         search: state.search,
-        allDogs: state.allDogs,
+        dogsAll: state.allDogs,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        dogsAll: dispatch(allDogs()),
+        // dogsAll: dispatch(allDogs()),
     }
 }
 

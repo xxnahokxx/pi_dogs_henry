@@ -67,7 +67,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return { ...state, error: payload };
 
         case ALL_DOGS:
-            return { ...state, allDogs: payload, dogsFilter: payload };
+
+            if (state.dogsFilter.length === 0) {
+                return { ...state, dogsFilter: payload, allDogs: payload}
+            }
+            return { ...state, allDogs: payload};
 
         case RESET:
             return { ...state, search: payload, dogsFilter: payload, error: false, escrito: "" };
@@ -87,28 +91,34 @@ const reducer = (state = initialState, { type, payload }) => {
         case PESO:
 
             let orden = [];
+            let orden2 = [];
 
             if (state.search.length > 0) {
                 orden = sortByWeight(state.search, payload);
+                orden2 = sortByWeight(state.allDogs, payload);
                 return { ...state, search: orden };
             }
 
             if (state.search.length === 0) {
                 orden = sortByWeight(state.dogsFilter, payload);
-                return { ...state, dogsFilter  : orden };
+                orden2 = sortByWeight(state.allDogs, payload);
+                return { ...state, dogsFilter  : orden, allDogs: orden2 };
             }
 
             break
 
         case ALFABETO:
             let alfa = []
+            let alfa2 = []
 
             if (state.search.length === 0) {
                  alfa =sortByName(state.dogsFilter, payload)
-                return { ...state, dogsFilter: alfa };
+                 alfa2 =sortByName(state.allDogs, payload)
+                return { ...state, dogsFilter: alfa, allDogs: alfa2 };
             }
             if (state.search.length > 0) {
                 alfa = sortByName(state.search, payload);
+                alfa2 = sortByName(state.allDogs, payload);
                 return { ...state, search: alfa };
             }
 
